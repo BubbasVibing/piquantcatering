@@ -5,7 +5,13 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    // Skip TypeScript check for production build
-    skipTypeCheck: true
+    outDir: 'dist',
+    emptyOutDir: true
+  },
+  server: {
+    port: 3000
+  },
+  preview: {
+    port: 8080
   }
 })
