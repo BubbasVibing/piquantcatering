@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/home'
+import ComingSoon from './pages/coming-soon'
 import './App.css'
 
 function App() {
@@ -7,13 +8,14 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* Add more routes as we develop more pages */}
-        {/* <Route path="/venue" element={<Venue />} /> */}
-        {/* <Route path="/corporate" element={<Corporate />} /> */}
-        {/* <Route path="/menus" element={<Menus />} /> */}
-        {/* <Route path="/events" element={<Events />} /> */}
-        {/* <Route path="/reviews" element={<Reviews />} /> */}
-        {/* <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/venue" element={<ComingSoon />} />
+        <Route path="/corporate" element={<ComingSoon />} />
+        <Route path="/menus" element={<ComingSoon />} />
+        <Route path="/events" element={<ComingSoon />} />
+        <Route path="/reviews" element={<ComingSoon />} />
+        <Route path="/contact" element={<ComingSoon />} />
+        {/* Catch-all route for any undefined routes */}
+        <Route path="*" element={<ComingSoon />} />
       </Routes>
     </Router>
   )
