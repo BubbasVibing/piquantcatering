@@ -1,0 +1,14 @@
+{
+  "name": "piquant",
+  "version": "1.0.0",
+  "description": "Luxury catering website",
+  "scripts": {
+    "dev": "cd client && npm run dev",
+    "start": "cd client && npm run dev",
+    "build": "cd client && npm run build",
+    "preview": "cd client && npm run preview",
+    "clean": "rm -rf node_modules && cd client && rm -rf node_modules && npm install"
+  },
+  "author": "",
+  "license": "ISC"
+} 
