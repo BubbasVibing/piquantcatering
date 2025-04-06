@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "cd client && npm run dev",
     "start": "cd client && npm run dev",
-    "build": "cd client && npm run build",
+    "build": "cd client && npm install typescript && npm run build",
     "preview": "cd client && npm run preview",
     "clean": "rm -rf node_modules && cd client && rm -rf node_modules && npm install"
   },
