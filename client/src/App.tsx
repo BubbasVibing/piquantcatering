@@ -1,6 +1,11 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import Home from './pages/home'
-import ComingSoon from './pages/coming-soon'
+import About from './pages/about'
+import Reviews from './pages/reviews'
+import Menus from './pages/menus'
+import EventsCatering from './pages/eventscatering'
+import Contact from './pages/contact'
+import Partnerships from './pages/partnerships'
 import './App.css'
 
 function App() {
@@ -8,14 +13,14 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/venue" element={<ComingSoon />} />
-        <Route path="/corporate" element={<ComingSoon />} />
-        <Route path="/menus" element={<ComingSoon />} />
-        <Route path="/events" element={<ComingSoon />} />
-        <Route path="/reviews" element={<ComingSoon />} />
-        <Route path="/contact" element={<ComingSoon />} />
-        {/* Catch-all route for any undefined routes */}
-        <Route path="*" element={<ComingSoon />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/menus" element={<Menus />} />
+        <Route path="/event-catering" element={<EventsCatering />} />
+        <Route path="/food-partnerships" element={<Partnerships />} />
+        <Route path="/reviews" element={<Reviews />} />
+        <Route path="/contact" element={<Contact />} />
+        {/* Catch-all route redirects to home */}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
   )

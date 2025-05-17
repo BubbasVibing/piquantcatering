@@ -63,8 +63,8 @@
 
 .footerLinks,
 .footerContact {
-  min-width: 200px;
-  flex: 1.5;
+  min-width: 150px;
+  flex: 1;
   margin-bottom: 20px;
 }
 
@@ -228,27 +228,65 @@
   font-weight: 300;
 }
 
+@media (max-width: 1200px) {
+  .footerContent {
+    justify-content: space-around;
+    gap: 40px;
+  }
+  
+  .footerLogo {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin: 0 auto 30px;
+    text-align: center;
+  }
+  
+  .footerLogo img {
+    margin: 0 auto 20px;
+  }
+  
+  .footerLogo p {
+    padding-right: 0;
+  }
+  
+  .footerLinks,
+  .footerContact,
+  .footerSocial {
+    flex: 0 0 calc(25% - 30px);
+    min-width: 160px;
+  }
+}
+
 @media (max-width: 992px) {
   .footerContent {
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 30px;
   }
   
-  .footerLogo, .footerLinks, .footerContact, .footerSocial {
+  .footerLogo, 
+  .footerLinks, 
+  .footerContact, 
+  .footerSocial {
     width: 100%;
     margin-bottom: 20px;
     max-width: 100%;
+  }
+  
+  .footerLinks {
+    flex: 0 0 calc(50% - 15px);
   }
   
   .footerSocial {
     margin-top: 20px;
   }
   
-  .footerLinks h4, .footerContact h4 {
+  .footerLinks h4, 
+  .footerContact h4 {
     text-align: center;
   }
   
-  .footerLinks h4::after, .footerContact h4::after {
+  .footerLinks h4::after, 
+  .footerContact h4::after {
     left: 50%;
     transform: translateX(-50%);
   }
@@ -264,4 +302,49 @@
   .footerContact {
     text-align: center;
   }
+}
+
+@media (max-width: 768px) {
+  .footerContent {
+    flex-direction: column;
+  }
+  
+  .footerLinks {
+    flex: 0 0 100%;
+    margin-bottom: 30px;
+  }
+}
+
+.socialPopup {
+  position: absolute;
+  background-color: #f4c38b;
+  color: #471f3a;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transform: translateX(-50%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  animation: fadeInOut 2s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.socialPopup::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: #f4c38b transparent transparent transparent;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(10px) translateX(-50%); }
+  15% { opacity: 1; transform: translateY(0) translateX(-50%); }
+  85% { opacity: 1; transform: translateY(0) translateX(-50%); }
+  100% { opacity: 0; transform: translateY(-10px) translateX(-50%); }
 }

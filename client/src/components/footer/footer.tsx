@@ -1,9 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './footer.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faInstagram, faPinterestP } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
+  
+  const handleSocialClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    // Calculate position near the clicked element
+    const rect = e.currentTarget.getBoundingClientRect();
+    setPopupPosition({
+      x: rect.left + window.scrollX + rect.width / 2,
+      y: rect.top + window.scrollY - 40
+    });
+    
+    // Show popup
+    setShowPopup(true);
+    
+    // Hide popup after 2 seconds
+    setTimeout(() => {
+      setShowPopup(false);
+    }, 2000);
+  };
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
@@ -18,14 +40,21 @@ const Footer = () => {
           </div>
           
           <div className={styles.footerLinks}>
-            <h4>Navigation</h4>
+            <h4>Quick Links</h4>
             <ul>
               <li><a href="/">Home</a></li>
-              <li><a href="/venue">Venue</a></li>
-              <li><a href="/corporate">Corporate</a></li>
+              <li><a href="/about">About</a></li>
               <li><a href="/menus">Menus</a></li>
-              <li><a href="/events">Events</a></li>
               <li><a href="/reviews">Reviews</a></li>
+            </ul>
+          </div>
+          
+          <div className={styles.footerLinks}>
+            <h4>Services</h4>
+            <ul>
+              <li><a href="/event-catering">Event Catering</a></li>
+              <li><a href="/food-partnerships">Partnerships</a></li>
+              <li><a href="/contact">Contact Us</a></li>
             </ul>
           </div>
           
@@ -38,13 +67,13 @@ const Footer = () => {
           <div className={styles.footerSocial}>
             <h4>Follow Us</h4>
             <div className={styles.socialIcons}>
-              <a href="#" aria-label="Facebook">
+              <a href="#" aria-label="Facebook" onClick={handleSocialClick}>
                 <FontAwesomeIcon icon={faFacebookF} />
               </a>
-              <a href="#" aria-label="Instagram">
+              <a href="#" aria-label="Instagram" onClick={handleSocialClick}>
                 <FontAwesomeIcon icon={faInstagram} />
               </a>
-              <a href="#" aria-label="Pinterest">
+              <a href="#" aria-label="Pinterest" onClick={handleSocialClick}>
                 <FontAwesomeIcon icon={faPinterestP} />
               </a>
             </div>
@@ -55,6 +84,18 @@ const Footer = () => {
           <p>&copy; {new Date().getFullYear()} Piquant Catering. All rights reserved.</p>
         </div>
       </div>
+      
+      {showPopup && (
+        <div 
+          className={styles.socialPopup}
+          style={{ 
+            left: `${popupPosition.x}px`, 
+            top: `${popupPosition.y}px` 
+          }}
+        >
+          Coming soon!
+        </div>
+      )}
     </footer>
   );
 };

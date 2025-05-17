@@ -42,12 +42,12 @@ const Navbar = () => {
         
         <ul className={`${styles.navLinks} ${mobileMenuOpen ? styles.active : ''}`}>
           <li><a href="/">Home</a></li>
-          <li><a href="/venue">Venue</a></li>
-          <li><a href="/corporate">Corporate</a></li>
+          <li><a href="/about">About</a></li>
           <li><a href="/menus">Menus</a></li>
-          <li><a href="/events">Events</a></li>
+          <li><a href="/event-catering">Event Catering</a></li>
+          <li><a href="/food-partnerships">Partnerships</a></li>
           <li><a href="/reviews">Reviews</a></li>
-          <li><a href="/contact" className={styles.contactBtn}>Contact</a></li>
+          <li><a href="/contact" className={styles.contactBtn}>Contact Us</a></li>
         </ul>
       </div>
     </nav>
