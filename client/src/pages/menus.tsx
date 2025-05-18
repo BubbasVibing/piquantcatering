@@ -38,10 +38,9 @@ interface MenuItem {
 }
 
 const Menus: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [activeCategory, setActiveCategory] = useState('breakfast');
   const [menuVisible, setMenuVisible] = useState(false);
   const [packageVisible, setPackageVisible] = useState(false);
-  const [viewMode, setViewMode] = useState<'gallery' | 'pdf'>('pdf');
   
   // Modal states for each package and the custom menu
   const [essentialModalOpen, setEssentialModalOpen] = useState(false);
@@ -192,126 +191,224 @@ const Menus: React.FC = () => {
 
   // Menu categories
   const categories: MenuCategory[] = [
-    { id: 'all', name: 'All' },
     { id: 'breakfast', name: 'Breakfast', icon: faUtensils },
     { id: 'lunch', name: 'Lunch', icon: faDrumstickBite },
     { id: 'dinner', name: 'Dinner', icon: faUtensils },
-    { id: 'snacks', name: 'Snacks', icon: faBirthdayCake }
+    { id: 'desserts', name: 'Desserts', icon: faBirthdayCake }
   ];
 
   // Menu items
   const menuItems: MenuItem[] = [
     {
-      id: 'egg-sauce',
-      name: 'Egg sauce',
-      description: "Egg sauce It's typically one of Nigerian staple food that is perfect for breakfast.",
-      price: '$15.00',
-      image: '/assets/images/menu/egg-sauce.jpg',
+      id: 'fruit-platter',
+      name: 'Signature Sliced Fruit Platter',
+      description: "Handpicked selection of seasonal and exotic fruits and berries",
+      price: '',
+      image: '/assets/images/menu/fruit-platter.jpg',
       category: 'breakfast',
       popular: true
     },
     {
-      id: 'abacha',
-      name: 'Abacha',
-      description: 'African salad is native to the ndi Igbo (people of Igbo).',
-      price: '$30.00',
-      image: '/assets/images/menu/abacha.jpg',
+      id: 'granola-yogurt',
+      name: 'Organic Oat Granola & Yogurt',
+      description: 'Cranberry pecan granola or sunflower wheat germ muesli, low fat yogurt or low-fat honey yogurt, bananas, berries',
+      price: '',
+      image: '/assets/images/menu/granola-yogurt.jpg',
+      category: 'breakfast'
+    },
+    {
+      id: 'mini-bagels',
+      name: 'Assorted Mini Bagels',
+      description: 'Imported French butter, fruit preserves, assorted cream cheeses',
+      price: '',
+      image: '/assets/images/menu/mini-bagels.jpg',
+      category: 'breakfast'
+    },
+    {
+      id: 'pastries-bagels',
+      name: 'House Baked Mini Pastries and Bagels',
+      description: 'Miniature muffins, scones, danish, croissants, mini bagels, imported French butter, assorted cream cheeses, fruit preserves',
+      price: '',
+      image: '/assets/images/menu/pastries-bagels.jpg',
+      category: 'breakfast',
+      popular: true
+    },
+    {
+      id: 'smoked-salmon',
+      name: 'Smoked Salmon and Mini Bagels',
+      description: 'Double smoked Atlantic salmon, assorted cream cheeses, Italian mascarpone cheese, shaved red onions, tomatoes, calamata olives, Persian cucumbers, capers',
+      price: '',
+      image: '/assets/images/menu/smoked-salmon.jpg',
+      category: 'breakfast'
+    },
+    {
+      id: 'british-scones',
+      name: 'British Tradition',
+      description: 'Mini currant tea scones, mascarpone cheese, strawberry preserves, fresh strawberries',
+      price: '',
+      image: '/assets/images/menu/british-scones.jpg',
+      category: 'breakfast'
+    },
+    {
+      id: 'salmon-torta',
+      name: 'Smoked Salmon Torta',
+      description: 'Layers of double smoked Atlantic salmon, goat cheese, cream cheese, fresh herbs, scallions, capers, served with whole grain bread, mini bagels or extra virgin olive oil crostini',
+      price: '',
+      image: '/assets/images/menu/salmon-torta.jpg',
       category: 'lunch'
     },
     {
-      id: 'boiled-potatoes',
-      name: 'Boiled Potatoes',
-      description: 'Boiled potatoes are highly nutritious mostly for kids and everyone contains fiber.',
-      price: '$10.00',
-      image: '/assets/images/menu/boiled-potatoes.jpg',
+      id: 'breakfast-sandwiches',
+      name: 'Grilled Pressed Whole Wheat English Muffins',
+      description: 'Assortment including: organic scrambled eggs with spinach & smoked gouda; organic scrambled eggs with cured turkey ham, spinach & smoked gouda; organic scrambled eggs with turkey, apple and sage sausage, harissa aioli & white cheddar; organic scrambled eggs with fresh mozzarella, basil pesto & sun dried tomato pesto',
+      price: '',
+      image: '/assets/images/menu/breakfast-sandwiches.jpg',
       category: 'breakfast'
     },
     {
-      id: 'grilled-plantain',
-      name: 'Grilled plantain',
-      description: 'Grilled plantain are commonly called "bole in nigeria" eaten with roasted groundnut, smoked fish, palm-oil and pepper sauce.',
-      price: '$9.00',
-      image: '/assets/images/menu/grilled-plantain.jpg',
-      category: 'snacks'
+      id: 'egg-white-wraps',
+      name: 'Grilled Pressed Baked Egg White Wraps',
+      description: 'Assortment including: baked egg white omelette with jack cheese, organic pinto beans, avocado & hot sauce; cured turkey ham with baked egg white omelette, jack cheese, avocado & hot sauce; baked egg white omelette with sautéed onions, peppers, turkey, apple and sage sausage, cheddar & harissa sauce',
+      price: '',
+      image: '/assets/images/menu/egg-white-wraps.jpg',
+      category: 'breakfast',
+      popular: true
     },
     {
-      id: 'akara-pap',
-      name: 'Akara and Pap',
-      description: "Akara and Pap is Naija's weekend morning meal for most homes because of its light and filling nature.",
-      price: '$9.00',
-      image: '/assets/images/menu/akara-pap.jpg',
-      category: 'breakfast'
+      id: 'vegan-sandwich',
+      name: 'Vegan Coconut "Bacon" Sandwich',
+      description: 'Smoked coconut, avocado, vegan aioli on seven grains bread',
+      price: '',
+      image: '/assets/images/menu/vegan-sandwich.jpg',
+      category: 'lunch'
     },
     {
-      id: 'pounded-yam',
-      name: 'Pounded yam and egusi soup',
-      description: 'Pounded Yam and egusi is a very delicious meal.',
-      price: '$20.00',
-      image: '/assets/images/menu/pounded-yam.jpg',
+      id: 'fresh-mozzarella',
+      name: 'Fresh Mozzarella Sandwich',
+      description: 'Basil pesto, balsamic, tomatoes on focaccia',
+      price: '',
+      image: '/assets/images/menu/fresh-mozzarella.jpg',
+      category: 'lunch'
+    },
+    {
+      id: 'albacore-tuna',
+      name: 'Albacore Tuna Sandwich',
+      description: 'With spinach and tomato on seven grains bread',
+      price: '',
+      image: '/assets/images/menu/albacore-tuna.jpg',
+      category: 'lunch'
+    },
+    {
+      id: 'pecan-blt',
+      name: 'Pecan BLT',
+      description: 'Brown sugar beef bacon, lettuce, tomato, honey dijon, chipotle aioli on ciabatta',
+      price: '',
+      image: '/assets/images/menu/pecan-blt.jpg',
+      category: 'lunch',
+      popular: true
+    },
+    {
+      id: 'chicken-cobb',
+      name: 'Chicken Cobb Club Wrap',
+      description: 'Avocado, brown sugar beef bacon, lettuce, tomato, blue cheese',
+      price: '',
+      image: '/assets/images/menu/chicken-cobb.jpg',
+      category: 'lunch'
+    },
+    {
+      id: 'organic-greens',
+      name: 'Organic Mesclun Greens',
+      description: 'Assorted baby lettuce, cherry tomatoes, Persian cucumbers, sesame-soy vinaigrette',
+      price: '',
+      image: '/assets/images/menu/organic-greens.jpg',
       category: 'dinner'
     },
     {
-      id: 'spaghetti',
-      name: 'Spagetti',
-      description: 'Spaghetti is a starchy pasta of Italian origin that is made in the form of long strings, boiled, and served with any of a variety of meat, tomato, or other sauces.',
-      price: '$15.00',
-      image: '/assets/images/menu/spaghetti.jpg',
-      category: 'lunch'
+      id: 'chopped-salad',
+      name: 'Chopped Salad',
+      description: 'Tomatoes, Persian cucumbers, red onions, fresh lemon juice, extra virgin olive oil dressing',
+      price: '',
+      image: '/assets/images/menu/chopped-salad.jpg',
+      category: 'dinner'
     },
     {
-      id: 'puff-puff',
-      name: 'Puff Puff',
-      description: 'Puff-puff, as it is called in Nigeria and Sierra Leone, sometimes Ghana, and in anglophone Cameroon, is a traditional African snack made of fried dough.',
-      price: '$2.00',
-      image: '/assets/images/menu/puff-puff.jpg',
-      category: 'snacks'
-    },
-    {
-      id: 'toast-bread',
-      name: 'Toast Bread and Tea',
-      description: 'Most homes in nigeria love our bread toasted but served with sauce or drank with hot tea or chocolate drink.',
-      price: '$10.00',
-      image: '/assets/images/menu/toast-bread.jpg',
-      category: 'breakfast'
-    },
-    {
-      id: 'jollof-rice',
-      name: 'Jollof rice',
-      description: 'Jollof, or jollof rice, is a rice dish from West Africa. It is widely eaten by all.',
-      price: '$20.00',
-      image: '/assets/images/menu/jollof-rice.jpg',
+      id: 'garden-vegetables',
+      name: 'Garden Vegetables',
+      description: 'Cherry tomatoes, green beans, radish, Persian cucumber, carrots, asparagus, fennel, romaine hearts, organic mesclun, miso dressing',
+      price: '',
+      image: '/assets/images/menu/garden-vegetables.jpg',
       category: 'dinner',
       popular: true
     },
     {
-      id: 'boiled-plantain',
-      name: 'Boiled plantain',
-      description: 'Boiled plantain are highly nutritious for everyone, boiled plantain can be served with different sauce.',
-      price: '$20.00',
-      image: '/assets/images/menu/boiled-plantain.jpg',
-      category: 'lunch'
+      id: 'greek-salad',
+      name: 'Classic Greek Salad',
+      description: 'Imported Greek feta, plum tomatoes, red peppers, Persian cucumbers, calamata olives, red onions, oregano, romaine hearts, balsamic herb dressing',
+      price: '',
+      image: '/assets/images/menu/greek-salad.jpg',
+      category: 'dinner'
     },
     {
-      id: 'corn',
-      name: 'Corn',
-      description: 'Corn can highly nutritious and can be eaten roasted, boiled also can be eaten with coconut and pear.',
-      price: '$5.00',
-      image: '/assets/images/menu/corn.jpg',
-      category: 'snacks'
+      id: 'moroccan-chicken',
+      name: 'Moroccan Chicken',
+      description: 'Bone-in chicken marinated with preserved lemon, green olives, and traditional Moroccan spices, slow roasted to perfection',
+      price: '',
+      image: '/assets/images/menu/moroccan-chicken.jpg',
+      category: 'dinner',
+      popular: true
+    },
+    {
+      id: 'merguez-lamb',
+      name: 'Merguez Lamb and Organic Cracked Wheat',
+      description: 'Traditional lamb preparation with aromatic Moroccan spices, served with organic cracked wheat and a side of yogurt mint sauce',
+      price: '',
+      image: '/assets/images/menu/merguez-lamb.jpg',
+      category: 'dinner'
+    },
+    {
+      id: 'strawberries',
+      name: 'Brownies and Strawberries',
+      description: 'A luscious display of our signature fudge-brownies and strawberries',
+      price: '',
+      image: '/assets/images/menu/brownies-strawberries.jpg',
+      category: 'desserts'
+    },
+    {
+      id: 'seasonal-berries',
+      name: 'Seasonal Berries and Cream',
+      description: 'A luscious presentation of assorted seasonal berries served with lightly sweetened whipped cream',
+      price: '',
+      image: '/assets/images/menu/berries-cream.jpg',
+      category: 'desserts',
+      popular: true
+    },
+    {
+      id: 'chocolate-cookies',
+      name: 'Chewy Dark Chocolate Walnut Cookies',
+      description: 'Our signature flourless cookies, no fat added',
+      price: '',
+      image: '/assets/images/menu/chocolate-cookies.jpg',
+      category: 'desserts'
+    },
+    {
+      id: 'chocolate-strawberries',
+      name: 'Chocolate Covered Strawberries',
+      description: 'Long-stem California strawberries covered with semi-sweet Belgian chocolate',
+      price: '',
+      image: '/assets/images/menu/chocolate-strawberries.jpg',
+      category: 'desserts'
     }
   ];
 
   // Filter menu items by category
-  const filteredMenuItems = activeCategory === 'all' 
-    ? menuItems 
-    : menuItems.filter(item => item.category === activeCategory);
+  const filteredMenuItems = menuItems.filter(item => item.category === activeCategory);
 
   // Catering packages
   const cateringPackages = [
     {
       title: 'Essential Package',
       description: 'Perfect for intimate gatherings and small events',
-      price: '$150 per person',
+      price: '$',
       features: [
         'Selection of 3 appetizers',
         '2 main course options',
@@ -326,7 +423,7 @@ const Menus: React.FC = () => {
     {
       title: 'Premium Package',
       description: 'Ideal for medium-sized events and corporate functions',
-      price: '$250 per person',
+      price: '$$',
       features: [
         'Selection of 5 appetizers',
         '3 main course options',
@@ -342,7 +439,7 @@ const Menus: React.FC = () => {
     {
       title: 'Luxury Package',
       description: 'The ultimate catering experience for special occasions',
-      price: '$450 per person',
+      price: '$$$',
       features: [
         'Selection of 7 appetizers',
         '4 main course options with premium ingredients',
@@ -380,79 +477,36 @@ const Menus: React.FC = () => {
             <p>Browse our diverse menu and discover culinary delights perfect for your event</p>
           </div>
           
-          <div className="menu-view-toggle">
-            <button 
-              onClick={() => setViewMode('pdf')} 
-              className={`view-toggle-btn ${viewMode === 'pdf' ? 'active' : ''}`}
-            >
-              PDF Menu
-            </button>
-            <button 
-              onClick={() => setViewMode('gallery')} 
-              className={`view-toggle-btn ${viewMode === 'gallery' ? 'active' : ''}`}
-            >
-              Gallery View
-            </button>
+          <div className="menu-address">
+            <p>Pennsauken, NJ | Englewood, NJ</p>
+            <p>T: 917 822 6951 | E: info@piquantcatering.com</p>
+          </div>
+          
+          <div className="menu-filter">
+            {categories.map(category => (
+              <button 
+                key={category.id}
+                className={`filter-button ${activeCategory === category.id ? 'active' : ''}`}
+                onClick={() => setActiveCategory(category.id)}
+              >
+                {category.icon && <FontAwesomeIcon icon={category.icon} />}
+                {category.name}
+              </button>
+            ))}
           </div>
 
-          {viewMode === 'gallery' ? (
-            <>
-              <div className="menu-filter">
-                {categories.map(category => (
-                  <button 
-                    key={category.id}
-                    className={`filter-button ${activeCategory === category.id ? 'active' : ''}`}
-                    onClick={() => setActiveCategory(category.id)}
-                  >
-                    {category.icon && <FontAwesomeIcon icon={category.icon} />}
-                    {category.name}
-                  </button>
-                ))}
+          <div className={`menu-list ${menuVisible ? 'animate-section' : ''}`}>
+            {filteredMenuItems.map(item => (
+              <div className="menu-item-text" key={item.id}>
+                <div className="menu-item-header">
+                  <h3 className="item-name">{item.name}</h3>
+                  <span className="menu-item-price">{item.price}</span>
+                </div>
+                <p className="menu-item-description">{item.description}</p>
+                {item.popular && <span className="menu-popular-tag">Chef's Choice</span>}
               </div>
-
-              <div className={`menu-grid ${menuVisible ? 'animate-section' : ''}`}>
-                {filteredMenuItems.map(item => (
-                  <div className="menu-item" key={item.id}>
-                    <div className="menu-item-image">
-                      <img src={item.image} alt={item.name} />
-                      {item.popular && <span className="popular-tag">Popular</span>}
-                    </div>
-                    <div className="menu-item-content">
-                      <div className="menu-item-header">
-                        <h3>{item.name}</h3>
-                        <span className="menu-item-price">{item.price}</span>
-                      </div>
-                      <p className="menu-item-description">{item.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </>
-          ) : (
-            <div className="pdf-menu-container">
-              <iframe 
-                src="/assets/piquant-full-menu.pdf" 
-                title="Piquant Catering Menu PDF"
-              />
-              <div className="pdf-actions">
-                <a 
-                  href="/assets/piquant-full-menu.pdf" 
-                  download
-                  className="pdf-download-btn"
-                >
-                  <FontAwesomeIcon icon={faDownload} />
-                  Download Menu PDF
-                </a>
-                <button 
-                  onClick={() => window.open('/assets/piquant-full-menu.pdf', '_blank')}
-                  className="pdf-fullscreen-btn"
-                >
-                  <FontAwesomeIcon icon={faExpand} />
-                  Open Full Screen
-                </button>
-              </div>
-            </div>
-          )}
+            ))}
+          </div>
         </div>
       </section>
 
@@ -940,14 +994,30 @@ const Menus: React.FC = () => {
                   <input type="hidden" name="_subject" value="Custom Menu Request" />
                 </form>
               </div>
-              <div className="modal-footer" style={{ padding: '15px 25px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                <p className="form-privacy" style={{ fontSize: '0.75rem', margin: '0', flex: '1' }}>Your information is secure. A member of our culinary team will contact you within 48 hours.</p>
+              <div className="modal-footer" style={{ 
+                padding: '15px 25px', 
+                display: 'flex', 
+                flexDirection: 'column', 
+                alignItems: 'stretch', 
+                gap: '15px'
+              }}>
+                <p className="form-privacy" style={{ 
+                  fontSize: '0.85rem', 
+                  margin: '0', 
+                  lineHeight: '1.5', 
+                  textAlign: 'left'
+                }}>
+                  Your information is secure. A member of our culinary team will contact you within 48 hours.
+                </p>
                 <button 
                   type="submit" 
                   form="custom-form" 
                   className="submit-btn"
                   disabled={submitting}
-                  style={{ padding: '10px 15px', marginLeft: '15px', whiteSpace: 'nowrap' }}
+                  style={{ 
+                    padding: '12px 15px',
+                    alignSelf: 'stretch'
+                  }}
                 >
                   {submitting ? 'Submitting...' : 'Submit Request'}
                 </button>

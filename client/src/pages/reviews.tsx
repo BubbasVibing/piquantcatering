@@ -15,8 +15,8 @@ import '../styles/reviews.css';
 const reviews = [
   {
     id: 1,
-    author: 'Emily Johnson',
-    avatar: '/assets/reviewer1.jpg', // You may need to add these images
+    author: 'Sarah Cohen',
+    avatar: '', // Using FontAwesome icons instead of images
     event: 'Wedding Reception',
     content: 'Piquant truly exceeded our expectations for our wedding day! The food was absolutely exceptional - our guests are still talking about the appetizers and main courses months later. The presentation was beautiful and the service was impeccable.',
     date: 'July 15, 2023',
@@ -25,28 +25,28 @@ const reviews = [
   },
   {
     id: 2,
-    author: 'Michael Thompson',
-    avatar: '/assets/reviewer2.jpg',
+    author: 'Benjamin Levine',
+    avatar: '',
     event: 'Corporate Event',
     content: 'Our company hired Piquant for our annual gala, and they delivered an outstanding experience. The menu was diverse and accommodated all dietary restrictions. The chef worked closely with us to customize every detail. Highly recommend!',
     date: 'September 3, 2023',
-    source: 'trustpilot',
+    source: 'google',
     rating: 5
   },
   {
     id: 3,
-    author: 'Sophia Williams',
-    avatar: '/assets/reviewer3.jpg',
+    author: 'Rachel Goldstein',
+    avatar: '',
     event: 'Birthday Celebration',
     content: 'The team at Piquant created an unforgettable culinary experience for my 50th birthday. The food was innovative yet approachable, and the presentation was Instagram-worthy! Their attention to detail and personalized service made the event truly special.',
     date: 'October 22, 2023',
-    source: 'yelp',
+    source: 'google',
     rating: 5
   },
   {
     id: 4,
-    author: 'David Rodriguez',
-    avatar: '/assets/reviewer4.jpg',
+    author: 'Noah Bernstein',
+    avatar: '',
     event: 'Anniversary Dinner',
     content: 'We hired Piquant for an intimate anniversary dinner at home, and it was magical. The chef prepared a custom menu that perfectly captured our preferences and included special touches from our first date. The service was unobtrusive yet attentive.',
     date: 'November 8, 2023',
@@ -55,70 +55,99 @@ const reviews = [
   },
   {
     id: 5,
-    author: 'Jennifer Lee',
-    avatar: '/assets/reviewer5.jpg',
+    author: 'Leah Silverstein',
+    avatar: '',
     event: 'Charity Gala',
     content: 'Our nonprofit organization has used Piquant for three consecutive annual galas, and they never disappoint. Their team manages to create elegant, delicious food for hundreds of guests while maintaining quality and presentation. The staff is professional and accommodating.',
     date: 'December 12, 2023',
-    source: 'trustpilot',
+    source: 'google',
     rating: 5
   },
   {
     id: 6,
-    author: 'Robert Chen',
-    avatar: '/assets/reviewer6.jpg',
-    event: 'Private Dinner Party',
-    content: 'Piquant transformed our dinner party into a gourmet experience! The chef\'s creativity and skill were evident in every course. Our guests were impressed by the flavors and beautiful plating. The staff was professional, friendly, and handled everything perfectly.',
+    author: 'Daniel Rosenberg',
+    avatar: '',
+    event: 'Bar Mitzvah',
+    content: 'Piquant transformed our son\'s Bar Mitzvah into a gourmet experience! The chef\'s creativity and skill were evident in every course. Our guests were impressed by the flavors and beautiful plating. The staff was professional, friendly, and handled everything perfectly.',
     date: 'January 20, 2024',
     source: 'google',
     rating: 4
   },
   {
     id: 7,
-    author: 'Alexis Martinez',
-    avatar: '/assets/reviewer7.jpg',
+    author: 'Rebecca Katz',
+    avatar: '',
     event: 'Baby Shower',
     content: 'We wanted something special for my sister\'s baby shower, and Piquant delivered! The themed menu was perfect, and they created beautiful food stations that were both delicious and visually stunning. The team was a pleasure to work with from planning to execution.',
     date: 'February 15, 2024',
-    source: 'yelp',
+    source: 'google',
     rating: 5
   },
   {
     id: 8,
-    author: 'Thomas Wilson',
-    avatar: '/assets/reviewer8.jpg',
-    event: 'Product Launch',
-    content: 'Our company hired Piquant for an important product launch event, and they helped make it a huge success. The food was innovative and aligned perfectly with our brand. Their team was professional, punctual, and the service was flawless. I highly recommend them for corporate events.',
+    author: 'Avi Shapiro',
+    avatar: '',
+    event: 'Corporate Luncheon',
+    content: 'Our company hired Piquant for an important business luncheon, and they helped make it a huge success. The food was innovative and elegant. Their team was professional, punctual, and the service was flawless. I highly recommend them for corporate events.',
     date: 'March 10, 2024',
     source: 'google',
     rating: 5
   },
   {
     id: 9,
-    author: 'Natalie Patel',
-    avatar: '/assets/reviewer9.jpg',
+    author: 'David Abramowitz',
+    avatar: '',
     event: 'Engagement Party',
     content: 'Piquant catered our engagement party, and we couldn\'t be happier with the experience! The food was incredible, and their team worked within our budget to create a memorable menu. The chef was attentive to our preferences and dietary needs, and everything was beautifully executed.',
     date: 'April 5, 2024',
-    source: 'trustpilot',
+    source: 'google',
+    rating: 5
+  },
+  {
+    id: 10,
+    author: 'Hannah Friedman',
+    avatar: '',
+    event: 'Graduation Celebration',
+    content: 'The catering service provided by Piquant for my graduation celebration was exceptional. They accommodated all our dietary requirements with creativity and flair. Every guest commented on how delicious the food was. I would definitely use their services again for future events.',
+    date: 'May 10, 2024',
+    source: 'google',
+    rating: 5
+  },
+  {
+    id: 11,
+    author: 'Eli Katz',
+    avatar: '',
+    event: 'Bar Mitzvah',
+    content: 'The team at Piquant made my son\'s bar mitzvah a truly special celebration. They created a beautiful kosher menu that honored our traditions while also offering modern flavors. The attention to detail and presentation were impeccable. Thank you for making our day memorable!',
+    date: 'June 8, 2024',
+    source: 'google',
+    rating: 5
+  },
+  {
+    id: 12,
+    author: 'Maya Weiss',
+    avatar: '',
+    event: 'Bat Mitzvah',
+    content: 'We chose Piquant for my daughter\'s bat mitzvah celebration and couldn\'t be happier with our choice. They respected our cultural preferences while adding their own creative touches. The food was exceptional and the service was warm and professional. Everyone was impressed!',
+    date: 'July 1, 2024',
+    source: 'google',
     rating: 5
   }
 ];
 
 // Sample food image paths
 const foodImages = {
-  mainDish: '/assets/food-main-dish.jpg',
-  appetizer: '/assets/food-appetizer.jpg',
-  dessert: '/assets/food-dessert.jpg',
+  mainDish: '/assets/luxurypackagecatering.jpg',
+  appetizer: '/assets/hummusmeal.jpg',
+  dessert: '/assets/herosectionpiquant1.jpg',
   beverage: '/assets/food-beverage.jpg',
   presentation: '/assets/food-presentation.jpg',
   eventSetup: '/assets/food-event-setup.jpg',
 };
 
 const Reviews: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
   const [activePage, setActivePage] = useState(1);
-  const [filteredReviews, setFilteredReviews] = useState(reviews);
+  const [filteredReviews] = useState(reviews);
   const reviewsPerPage = 6;
   
   // Refs for intersection observer
@@ -126,17 +155,6 @@ const Reviews: React.FC = () => {
   const ratingOverviewRef = useRef<HTMLDivElement>(null);
   const testimonialsRef = useRef<HTMLDivElement>(null);
   const reviewsGridRef = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    // Filter reviews based on selected filter
-    if (activeFilter === 'all') {
-      setFilteredReviews(reviews);
-    } else {
-      setFilteredReviews(reviews.filter(review => review.source === activeFilter));
-    }
-    // Reset to first page when filter changes
-    setActivePage(1);
-  }, [activeFilter]);
   
   useEffect(() => {
     // Setup intersection observer to trigger animations
@@ -232,6 +250,7 @@ const Reviews: React.FC = () => {
       case 'trustpilot':
         return (
           <span className="review-source">
+            <FontAwesomeIcon icon={faStar} className="platform-icon trustpilot-icon" />
             <span className="trustpilot-text">Trustpilot</span>
           </span>
         );
@@ -413,22 +432,22 @@ const Reviews: React.FC = () => {
               <div className="image-stack">
                 <div className="food-image">
                   <img 
-                    src={foodImages.mainDish || "/assets/foodimagepiquant.png"} 
-                    alt="Gourmet dish presentation" 
+                    src="/assets/luxurypackagecatering.jpg"
+                    alt="Luxury catering showcase with shrimp cocktails and appetizers" 
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
                   />
                 </div>
                 <div className="food-image">
                   <img 
-                    src={foodImages.dessert || "/assets/foodimagepiquant.png"} 
-                    alt="Delicious dessert" 
+                    src="/assets/hummusmeal.jpg"
+                    alt="Mediterranean spread with hummus and fresh vegetables" 
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
                   />
                 </div>
                 <div className="food-image">
                   <img 
-                    src={foodImages.appetizer || "/assets/foodimagepiquant.png"} 
-                    alt="Elegant appetizer" 
+                    src="/assets/herosectionpiquant1.jpg"
+                    alt="Traditional Greek salad with feta cheese" 
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
                   />
                 </div>
@@ -443,33 +462,14 @@ const Reviews: React.FC = () => {
         <div className="reviews-container">
           <div className="reviews-grid-header" ref={testimonialsRef}>
             <h2>Customer Testimonials</h2>
-            <p>Read what our clients have to say about their experiences with our catering services for various events</p>
+            <p>Read what our clients have to say about their experiences with our catering services on Google</p>
           </div>
           
           <div className="reviews-filter">
             <button 
-              className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`}
-              onClick={() => setActiveFilter('all')}
+              className="filter-btn active"
             >
-              All Reviews
-            </button>
-            <button 
-              className={`filter-btn ${activeFilter === 'google' ? 'active' : ''}`}
-              onClick={() => setActiveFilter('google')}
-            >
-              <FontAwesomeIcon icon={faGoogle} /> Google
-            </button>
-            <button 
-              className={`filter-btn ${activeFilter === 'yelp' ? 'active' : ''}`}
-              onClick={() => setActiveFilter('yelp')}
-            >
-              <FontAwesomeIcon icon={faYelp} /> Yelp
-            </button>
-            <button 
-              className={`filter-btn ${activeFilter === 'trustpilot' ? 'active' : ''}`}
-              onClick={() => setActiveFilter('trustpilot')}
-            >
-              Trustpilot
+              <FontAwesomeIcon icon={faGoogle} /> Google Reviews
             </button>
           </div>
           
@@ -478,10 +478,15 @@ const Reviews: React.FC = () => {
               <div className="review-card" key={review.id}>
                 <div className="review-header">
                   <div className="reviewer-image">
-                    {review.avatar ? (
-                      <img src={review.avatar} alt={review.author} />
+                    {/* Use different FontAwesome icons as reviewer avatars */}
+                    {review.id % 4 === 0 ? (
+                      <FontAwesomeIcon icon={faUserCircle} className="avatar-icon" />
+                    ) : review.id % 4 === 1 ? (
+                      <FontAwesomeIcon icon={faUsers} className="avatar-icon" />
+                    ) : review.id % 4 === 2 ? (
+                      <FontAwesomeIcon icon={faMugHot} className="avatar-icon" />
                     ) : (
-                      <FontAwesomeIcon icon={faUserCircle} size="3x" />
+                      <FontAwesomeIcon icon={faLeaf} className="avatar-icon" />
                     )}
                   </div>
                   <div className="reviewer-info">

@@ -396,7 +396,7 @@
 .food-image-container {
   flex: 1;
   min-width: 300px;
-  height: 500px;
+  height: 580px;
   position: relative;
   animation: scaleIn 1s ease forwards;
   opacity: 0;
@@ -419,34 +419,40 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   transform-origin: center;
-  transition: all 0.3s ease;
+  transition: all 0.35s ease;
+  border: 3px solid white;
 }
 
 .food-image:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
   z-index: 10;
 }
 
 .food-image:nth-child(1) {
   top: 0;
   right: 0;
-  transform: rotate(5deg);
+  transform: rotate(6deg);
   z-index: 3;
 }
 
 .food-image:nth-child(2) {
-  top: 50px;
+  top: 60px;
   left: 0;
-  transform: rotate(-3deg);
+  transform: rotate(-4deg);
   z-index: 2;
 }
 
 .food-image:nth-child(3) {
-  top: 150px;
-  right: 30px;
-  transform: rotate(2deg);
+  top: 170px;
+  right: 20px;
+  transform: rotate(3deg);
   z-index: 1;
+}
+
+/* Add for better hover effect */
+.image-stack:hover .food-image:not(:hover) {
+  opacity: 0.9;
 }
 
 .food-image-placeholder {
@@ -815,14 +821,48 @@
   height: 60px;
   border-radius: 50%;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-right: 15px;
+  background-color: rgba(71, 31, 58, 0.1);
   border: 2px solid var(--secondary);
+  flex-shrink: 0;
 }
 
 .reviewer-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.reviewer-image .avatar-icon {
+  font-size: 1.8rem;
+  color: var(--primary);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.review-card:hover .reviewer-image .avatar-icon {
+  color: var(--secondary);
+  transform: scale(1.1);
+}
+
+/* Add different background colors for different icon types */
+.reviewer-image .fa-user-circle {
+  background-color: rgba(244, 195, 139, 0.2);
+}
+
+.reviewer-image .fa-users {
+  background-color: rgba(71, 31, 58, 0.1);
+}
+
+.reviewer-image .fa-mug-hot {
+  background-color: rgba(244, 195, 139, 0.15);
+}
+
+.reviewer-image .fa-leaf {
+  background-color: rgba(71, 31, 58, 0.08);
 }
 
 .reviewer-info h4 {
@@ -883,6 +923,10 @@
 
 .platform-icon {
   font-size: 1.2rem;
+}
+
+.platform-icon.trustpilot-icon {
+  color: #00B67A;
 }
 
 .google-text {
@@ -1161,13 +1205,13 @@
   }
 
   .food-image-container {
-    height: 400px;
+    height: 500px;
+    margin: 0 auto;
+    max-width: 400px;
   }
 
   .food-image {
-    height: 250px;
-    position: relative;
-    margin-bottom: 20px;
+    height: 280px;
   }
   
   .food-image:nth-child(1) {
@@ -1228,7 +1272,8 @@
   }
 
   .food-image-container {
-    height: 300px;
+    height: 450px;
+    max-width: 300px;
   }
 }
 

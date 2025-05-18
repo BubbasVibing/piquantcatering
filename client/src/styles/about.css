@@ -12,6 +12,8 @@
 /* Hero Section */
 .about-hero-section {
   height: 50vh;
+  min-height: 300px; /* Ensures minimum height on small screens */
+  max-height: 600px; /* Prevents excessive height on large screens */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -123,6 +125,7 @@
   padding: 50px;
   border-radius: 10px;
   box-shadow: none;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
 }
 
 .story-content.animate-section {
@@ -310,6 +313,7 @@
   width: 90%;
   height: auto;
   max-height: 450px;
+  max-width: 100%; /* Ensures image doesn't overflow container */
   object-fit: cover;
   object-position: center;
   border-radius: 10px;
@@ -1048,6 +1052,7 @@
   .story-content {
     flex-direction: column;
     padding: 40px 30px;
+    gap: 30px; /* Reduced gap for smaller screens */
   }
   
   .story-text {
@@ -1078,6 +1083,8 @@
     width: 75%;
     height: auto;
     max-height: 350px;
+    margin: 0 auto; /* Center the image */
+    display: block; /* Ensure block display for margin auto to work */
   }
   
   .mission-content-wrapper {
@@ -1132,11 +1139,14 @@
 @media (max-width: 768px) {
   .about-hero-section {
     height: 40vh;
+    min-height: 250px; /* Ensures it's not too short on mobile */
+    margin-top: 70px; /* Adjust for fixed navbar height */
   }
   
   .about-hero-section h1 {
     font-size: 2.5rem;
     letter-spacing: 3px;
+    margin-top: 20px; /* Ensure it's visible with fixed navbar */
   }
   
   .about-hero-section p {
@@ -1190,6 +1200,7 @@
   
   .mission-section {
     padding-top: 50px;
+    padding-bottom: 50px; /* Add padding at bottom */
   }
 }
 
@@ -1204,6 +1215,11 @@
   
   .story-image {
     border-width: 3px;
+  }
+  
+  .about-hero-section {
+    height: 35vh;
+    min-height: 200px;
   }
   
   .about-hero-section h1 {
@@ -1262,6 +1278,8 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  width: 100%; /* Ensure full width */
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .culinary-process-title {
@@ -1277,6 +1295,7 @@
   justify-content: space-between;
   position: relative;
   margin-top: 60px;
+  width: 100%; /* Ensure it takes full width */
 }
 
 .culinary-process-line {
@@ -1337,20 +1356,24 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .culinary-process-steps {
-    justify-content: center;
+  .culinary-process-section {
+    padding: 80px 0; /* Reduce padding on smaller screens */
   }
   
-  .culinary-process-step {
-    flex: 0 0 calc(50% - 30px);
+  .culinary-process-steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
   }
   
   .culinary-process-line {
-    display: none;
+    display: none; /* Hide the line on mobile as it won't look good in column layout */
   }
   
-  .culinary-process-icon {
-    font-size: 40px;
+  .culinary-process-step {
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
   }
 }
 

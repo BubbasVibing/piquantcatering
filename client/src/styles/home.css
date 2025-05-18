@@ -2752,6 +2752,7 @@ body .home .hero-section h1,
   color: var(--text-medium);
   flex: 1;
   margin-right: 15px;
+  line-height: 1.5;
 }
 
 .submit-btn {

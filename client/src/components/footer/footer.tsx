@@ -36,7 +36,7 @@ const Footer = () => {
               alt="Piquant Logo" 
               className={styles.footerLogoImg} 
             />
-            <p>Extraordinary culinary experiences</p>
+            <p>Elevating events with artful cuisine and exceptional service since 2010</p>
           </div>
           
           <div className={styles.footerLinks}>
@@ -60,8 +60,9 @@ const Footer = () => {
           
           <div className={styles.footerContact}>
             <h4>Contact Us</h4>
-            <p>123 Culinary Avenue<br />Gourmet District, CA 90210</p>
-            <p>info@piquantcatering.com<br />(555) 123-4567</p>
+            <p>Pennsauken, NJ<br />Englewood, NJ</p>
+            <p style={{ textAlign: 'center' }}>info@piquantcatering.com</p>
+            <p style={{ textAlign: 'center' }}>(917) 822-6951</p>
           </div>
           
           <div className={styles.footerSocial}>

@@ -339,8 +339,8 @@ const Contact: React.FC = () => {
                       <FontAwesomeIcon icon={faMapMarkerAlt} />
                     </div>
                     <div className="info-content">
-                      <h4>Our Location</h4>
-                      <p>123 Culinary Avenue<br />Metropolitan City, ST 12345</p>
+                      <h4>Our Locations</h4>
+                      <p>Pennsauken, NJ<br />Englewood, NJ</p>
                     </div>
                   </div>
                   
@@ -350,7 +350,7 @@ const Contact: React.FC = () => {
                     </div>
                     <div className="info-content">
                       <h4>Phone Number</h4>
-                      <p>(123) 456-7890</p>
+                      <p>(917) 822-6951</p>
                     </div>
                   </div>
                   
@@ -360,17 +360,7 @@ const Contact: React.FC = () => {
                     </div>
                     <div className="info-content">
                       <h4>Email Address</h4>
-                      <p>info@piquant.com</p>
-                    </div>
-                  </div>
-                  
-                  <div className="info-item">
-                    <div className="info-icon">
-                      <FontAwesomeIcon icon={faClock} />
-                    </div>
-                    <div className="info-content">
-                      <h4>Hours of Operation</h4>
-                      <p>Tuesday-Sunday: 12pm - 10pm<br />Closed Mondays</p>
+                      <p>info@piquantcatering.com</p>
                     </div>
                   </div>
                 </div>
@@ -378,14 +368,14 @@ const Contact: React.FC = () => {
               
               <div className="map-container">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.30591910525!2d-74.25986432970386!3d40.69714941680757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1652813100933!5m2!1sen!2s" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3053.7646124031003!2d-75.0053959!3d39.9653701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6ca35cb6b1aff%3A0x4f2ef8cf1b92c02d!2s1444%20NJ-73%2C%20Pennsauken%2C%20NJ%2008110!5e0!3m2!1sen!2sus!4v1688152594171!5m2!1sen!2sus" 
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
                   allowFullScreen 
                   loading="lazy" 
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Piquant Restaurant Location"
+                  title="Piquant Catering Location - Pennsauken, NJ"
                 ></iframe>
               </div>
             </div>

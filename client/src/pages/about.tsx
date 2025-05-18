@@ -260,13 +260,17 @@ const About: React.FC = () => {
       </section>
       
       {/* Our Mission Section - Modern Elegant Layout */}
-      <section className="mission-section" ref={missionRef}>
+      <section className="mission-section" ref={missionRef} style={{ gap: '0' }}>
         <div className="mission-badge">OUR MISSION</div>
-        <div className="mission-image">
-          <img src="/assets/tableset.png" alt="Elegantly set event table" />
+        <div className="mission-image" style={{ paddingRight: '0' }}>
+          <img 
+            src="/assets/elegantcateringsetup.jpg" 
+            alt="Elegant catering setup with gourmet food display" 
+            style={{ maxWidth: '100%', height: 'auto' }}
+          />
         </div>
-        <div className="mission-content-wrapper">
-          <div className={`mission-content ${missionVisible ? 'animate-section' : ''}`}>
+        <div className="mission-content-wrapper" style={{ paddingLeft: '0' }}>
+          <div className={`mission-content ${missionVisible ? 'animate-section' : ''}`} style={{ padding: '30px 40px' }}>
             <style>
               {`
                 .no-after-element::after {
