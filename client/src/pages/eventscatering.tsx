@@ -174,76 +174,76 @@ const EventsCatering: React.FC = () => {
     {
       id: 'weddings',
       title: 'Weddings',
-      description: 'Your special day deserves exceptional cuisine. Our wedding catering services offer customized menus, elegant presentation, and flawless service to create a memorable culinary experience for you and your guests.',
+      description: 'Your wedding day should be unforgettable—down to the last bite. Our team works closely with you to design a menu that reflects your love story, complemented by elegant presentation and attentive service.',
       icon: faRing,
       image: '/assets/weddingcateringpicture.jpg',
       features: [
-        'Customized wedding menus tailored to your preferences',
-        'Pre-wedding tastings to perfect your menu selection',
-        'Full service staff including servers and bartenders',
-        'Beautiful food displays and elegant presentation',
-        'Special attention to dietary restrictions and preferences',
-        'Coordination with your venue and other vendors'
+        'Custom menus tailored to your tastes and theme',
+        'Pre-wedding tastings to finalize every detail',
+        'Full-service staff, including servers and bartenders',
+        'Stunning displays that enhance your décor',
+        'Careful attention to dietary needs and cultural traditions',
+        'Coordination with your venue and vendors for a seamless day'
       ]
     },
     {
       id: 'corporate',
       title: 'Corporate Events',
-      description: 'Impress your clients and colleagues with premium catering for your corporate gatherings. From breakfast meetings and lunch conferences to grand galas, we provide professional service and exceptional food.',
+      description: 'Host with confidence, knowing our catering delivers exceptional food and seamless service for every type of corporate occasion. Whether it\'s a breakfast meeting, team lunch, or formal gala, Piquant ensures a polished, professional experience from start to finish.',
       icon: faBuilding,
       image: '/assets/corporatecatering.jpg',
       features: [
-        'Efficient service for time-sensitive corporate schedules',
-        'Custom branded presentations available',
-        'Breakfast, lunch, dinner and reception options',
-        'Drop-off service for casual meetings',
-        'Full service catering for formal corporate events',
-        'Diverse menu options to please all attendees'
+        'Timely, professional setup to fit corporate schedules',
+        'Branded presentation options available upon request',
+        'Breakfast, lunch, dinner, and reception service',
+        'Drop-off catering for casual meetings or office gatherings',
+        'Full-service catering for conferences, launches, and celebrations',
+        'Versatile menus to satisfy a wide range of preferences and dietary needs'
       ]
     },
     {
       id: 'birthdays',
-      title: 'Birthday Parties',
-      description: 'Celebrate your birthday with delicious food that will delight your guests. From casual backyard gatherings to milestone celebrations, we craft menus that match your party\'s theme and atmosphere.',
+      title: 'Birthday Celebrations',
+      description: 'Make your birthday unforgettable with food that\'s as joyful and memorable as the occasion itself. Whether you\'re hosting a backyard gathering or a milestone soirée, we\'ll design a menu that matches your vision, theme, and guests.',
       icon: faBirthdayCake,
       image: '/assets/birthdaycatering.jpg',
       features: [
-        'Fun and creative menu options for all ages',
-        'Custom birthday cakes and dessert displays',
-        'Theme-based food presentations',
-        'Kid-friendly menu options',
-        'Casual buffets or elegant plated service',
-        'Special celebration packages available'
+        'Fun, creative menu options for all ages',
+        'Custom birthday cakes and curated dessert displays',
+        'Themed food presentations that elevate your celebration',
+        'Kid-friendly choices that don\'t compromise on flavor',
+        'Casual buffets or refined plated service',
+        'Celebration packages available for added ease and impact'
       ]
     },
     {
       id: 'graduations',
-      title: 'Graduations',
-      description: 'Celebrate this important milestone with delicious food that brings everyone together. Our graduation catering packages are designed to make your celebration stress-free and memorable.',
+      title: 'Graduation Celebrations',
+      description: 'Celebrate academic milestones with food that brings people together and creates lasting memories. Whether you\'re planning a casual get-together or a large celebration, our graduation catering makes it easy, festive, and delicious.',
       icon: faUserGraduate,
       image: '/assets/graduationcatering.jpg',
       features: [
-        'Flexible service styles to accommodate any venue',
-        'Options for all budget levels',
-        'School colors and themed presentations',
-        'Crowd-pleasing menu selections',
-        'Easy self-service buffets or full service options',
-        'Accommodations for large groups'
+        'Flexible service styles for backyards, halls, or schools',
+        'Options available for a range of budgets',
+        'Customized presentations featuring school colors and themes',
+        'Menus designed to please guests of all ages',
+        'Hassle-free self-serve buffets or full-service experiences',
+        'Ideal for both intimate family events and large gatherings'
       ]
     },
     {
       id: 'social',
       title: 'Social Gatherings',
-      description: 'From family reunions to holiday parties, our catering services bring people together through amazing food. Let us handle the culinary details while you focus on making memories with your loved ones.',
+      description: 'From intimate dinners to festive holiday parties, we help make your moments memorable with thoughtfully prepared meals and warm, attentive service. Let us take care of the details—so you can enjoy time with the people who matter most.',
       icon: faUsers,
       image: '/assets/socialgatheringcatering.jpg',
       features: [
-        'Diverse menu options for varied guest preferences',
-        'Family-style, buffet, or plated service options',
-        'Seasonal and holiday-themed menus',
-        'Casual to upscale service levels available',
-        'Flexible setup options for any venue',
-        'Personalized service to match your event\'s style'
+        'Varied menu options to suit diverse tastes and dietary needs',
+        'Family-style, buffet, or plated service formats',
+        'Seasonal specialties and themed holiday menus',
+        'Service styles ranging from relaxed to refined',
+        'Flexible setups to fit backyards, homes, or event venues',
+        'Personalized touches to reflect your gathering\'s tone and theme'
       ]
     }
   ];
@@ -333,31 +333,31 @@ const EventsCatering: React.FC = () => {
                 <FontAwesomeIcon icon={faUtensils} />
               </div>
               <h3>Full-Service Catering</h3>
-              <p>Comprehensive catering with professional staff, elegant presentation, and complete setup and cleanup.</p>
+              <p>Let us take care of everything. From setup to breakdown, our experienced team delivers seamless service, beautifully presented meals, and the kind of attention to detail that lets you fully enjoy your event.</p>
             </div>
             
             <div className="service-card">
               <div className="service-icon">
                 <FontAwesomeIcon icon={faUsers} />
               </div>
-              <h3>Food Stations & Buffets</h3>
-              <p>Interactive food stations and elegant buffet displays with a variety of culinary options for your guests.</p>
+              <h3>Buffets & Interactive Stations</h3>
+              <p>Engage your guests with elegant buffet setups or chef-curated food stations. Perfect for weddings, celebrations, and large gatherings, these formats offer variety, visual appeal, and a touch of fun.</p>
             </div>
             
             <div className="service-card">
               <div className="service-icon">
                 <FontAwesomeIcon icon={faHeart} />
               </div>
-              <h3>Custom Menu Design</h3>
-              <p>Personalized menus crafted to match your event theme, dietary needs, and personal preferences.</p>
+              <h3>Custom Menu Creation</h3>
+              <p>Your event deserves a menu as thoughtful as the occasion. We work with you to craft dishes that reflect your tastes, accommodate dietary needs, and complement the theme or mood of your gathering.</p>
             </div>
             
             <div className="service-card">
               <div className="service-icon">
                 <FontAwesomeIcon icon={faCalendarCheck} />
               </div>
-              <h3>Event Planning</h3>
-              <p>Coordination with venues and vendors to ensure a seamless and stress-free event experience.</p>
+              <h3>Event Coordination Support</h3>
+              <p>Need more than food? We collaborate with venues and trusted vendors to help coordinate the flow of your event—so everything comes together seamlessly.</p>
             </div>
           </div>
         </div>

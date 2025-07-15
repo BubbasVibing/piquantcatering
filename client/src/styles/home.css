@@ -50,6 +50,11 @@ section {
   margin-bottom: 40px;
 }
 
+/* Reduce gap in contact section */
+.contact-section .section-header {
+  margin-bottom: 20px;
+}
+
 .section-header h2 {
   display: inline-block;
   position: relative;
@@ -1442,7 +1447,7 @@ body .home .hero-section h1::after,
 
 /* Contact Section */
 .contact-section {
-  background-color: var(--primary-ultra-light);
+  background-color: #f8f6f4;
   padding: 100px 0;
   position: relative;
 }
@@ -1454,7 +1459,7 @@ body .home .hero-section h1::after,
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(120deg, rgba(71, 31, 58, 0.03) 0%, rgba(71, 31, 58, 0.05) 100%);
+  background-image: linear-gradient(120deg, rgba(71, 31, 58, 0.05) 0%, rgba(71, 31, 58, 0.08) 100%);
   z-index: 1;
 }
 

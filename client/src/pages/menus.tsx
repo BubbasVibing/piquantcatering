@@ -15,7 +15,9 @@ import {
   faClock,
   faMapMarkerAlt,
   faDownload,
-  faExpand
+  faExpand,
+  faChevronLeft,
+  faChevronRight
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import '../styles/menus.css';
@@ -41,6 +43,8 @@ const Menus: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('breakfast');
   const [menuVisible, setMenuVisible] = useState(false);
   const [packageVisible, setPackageVisible] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
+
   
   // Modal states for each package and the custom menu
   const [essentialModalOpen, setEssentialModalOpen] = useState(false);
@@ -468,44 +472,108 @@ const Menus: React.FC = () => {
         </div>
       </section>
 
-      {/* Menu Categories and Items */}
+      {/* Menu PDFs Section */}
       <section className="menu-section" ref={menuRef}>
         <div className="container">
           <div className="section-header">
-            <h2>Our Catering Selection</h2>
-            <div className="decorative-line"></div>
-            <p>Browse our diverse menu and discover culinary delights perfect for your event</p>
+            <h2>Our Menu Collection</h2>
+            <p>Browse our complete menu pages below</p>
           </div>
           
-          <div className="menu-address">
-            <p>Pennsauken, NJ | Englewood, NJ</p>
-            <p>T: 917 822 6951 | E: info@piquantcatering.com</p>
-          </div>
-          
-          <div className="menu-filter">
-            {categories.map(category => (
+          <div className={`menu-booklet ${menuVisible ? 'animate-section' : ''}`}>
+            <div className="booklet-container">
+              {/* Navigation Arrows */}
               <button 
-                key={category.id}
-                className={`filter-button ${activeCategory === category.id ? 'active' : ''}`}
-                onClick={() => setActiveCategory(category.id)}
+                className={`booklet-arrow booklet-arrow-left ${currentPage === 0 ? 'disabled' : ''}`}
+                onClick={() => {
+                  if (currentPage > 0) {
+                    setCurrentPage(currentPage - 1);
+                  }
+                }}
+                disabled={currentPage === 0}
+                aria-label="Previous page"
               >
-                {category.icon && <FontAwesomeIcon icon={category.icon} />}
-                {category.name}
+                <FontAwesomeIcon icon={faChevronLeft} />
               </button>
-            ))}
-          </div>
 
-          <div className={`menu-list ${menuVisible ? 'animate-section' : ''}`}>
-            {filteredMenuItems.map(item => (
-              <div className="menu-item-text" key={item.id}>
-                <div className="menu-item-header">
-                  <h3 className="item-name">{item.name}</h3>
-                  <span className="menu-item-price">{item.price}</span>
-                </div>
-                <p className="menu-item-description">{item.description}</p>
-                {item.popular && <span className="menu-popular-tag">Chef's Choice</span>}
+              <button 
+                className={`booklet-arrow booklet-arrow-right ${currentPage === 18 ? 'disabled' : ''}`}
+                onClick={() => {
+                  if (currentPage < 18) {
+                    setCurrentPage(currentPage + 1);
+                  }
+                }}
+                disabled={currentPage === 18}
+                aria-label="Next page"
+              >
+                <FontAwesomeIcon icon={faChevronRight} />
+              </button>
+
+              {/* Page Number Display with Download */}
+              <div className="page-number-display">
+                <span>{currentPage + 1} / 19</span>
+                <button 
+                  className="download-page-btn"
+                  onClick={() => {
+                    const pageNumber = currentPage + 1;
+                    const filename = pageNumber === 2 ? '2 (1).pdf' : `${pageNumber}.pdf`;
+                    const link = document.createElement('a');
+                    link.href = `/assets/menu/${encodeURIComponent(filename)}`;
+                    link.download = `Piquant-Menu-Page-${pageNumber}.pdf`;
+                    link.click();
+                  }}
+                  aria-label="Download current page"
+                >
+                  <FontAwesomeIcon icon={faDownload} />
+                </button>
               </div>
-            ))}
+
+              {/* Booklet Pages */}
+              <div className="booklet-pages">
+                {(() => {
+                  const pageNumber = currentPage + 1;
+                  let filename;
+                  
+                  if (pageNumber === 2) {
+                    filename = '2 (1).pdf';
+                  } else {
+                    filename = `${pageNumber}.pdf`;
+                  }
+                  
+                  return (
+                    <div className="booklet-page">
+                      <div className="pdf-container">
+                        <div className="pdf-wrapper">
+                          <iframe 
+                            src={`/assets/menu/${encodeURIComponent(filename)}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
+                            title={`Menu page ${pageNumber}`}
+                            className="booklet-pdf-iframe"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })()}
+              </div>
+              
+              {/* Page Indicators */}
+              <div className="page-indicators">
+                {Array.from({ length: 19 }, (_, i) => (
+                  <button
+                    key={i}
+                    className={`page-dot ${i === currentPage ? 'active' : ''}`}
+                    onClick={() => {
+                      if (i !== currentPage) {
+                        setCurrentPage(i);
+                      }
+                    }}
+                    aria-label={`Go to page ${i + 1}`}
+                  />
+                ))}
+              </div>
+              
+
+            </div>
           </div>
         </div>
       </section>

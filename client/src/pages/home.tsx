@@ -373,17 +373,15 @@ const Home: React.FC = () => {
           <div className="about-content">
             <div className="about-text">
               <p>
-                At Piquant, we believe that <span className="culinary-highlight">exceptional food is the cornerstone</span> of any memorable event. 
-                Our team of passionate chefs combines classic techniques with innovative approaches 
-                to create dining experiences that captivate all the senses.
+                We work closely with local farmers and artisanal producers to source the finest seasonal ingredients, ensuring that every dish we serve reflects our
+                <span className="culinary-highlight"> commitment to flavor, quality and sustainability</span>.
               </p>
               <p>
-                We work closely with local farmers and artisanal producers to source the finest seasonal 
-                ingredients, ensuring that every dish we serve reflects our <span className="culinary-highlight">commitment to flavor, quality and sustainability</span>.
+                From meticulously crafted canapés to show-stopping entrées, our culinary creations are tailored to your unique vision, transforming your event into an unforgettable gastronomic journey that your guests will remember long after the last bite.
               </p>
               <p>
-                From meticulously crafted canapés to show-stopping entrées, our culinary creations are tailored to your unique vision,
-                transforming your event into an unforgettable gastronomic journey that your guests will remember long after the last bite.
+                At Piquant, we believe that <span className="culinary-highlight">exceptional food is the cornerstone</span> of any memorable
+                event. Our team of passionate chefs combines classic techniques with innovative approaches to create dining experiences that captivate all the senses.
               </p>
             </div>
             <div className="about-image" ref={aboutImageRef}>
@@ -441,7 +439,8 @@ const Home: React.FC = () => {
         </div>
       </section>
       
-      {/* Gallery Section - Card-based Layout */}
+      {/* Gallery Section - Card-based Layout - DISABLED */}
+      {/*
       <section className="gallery-section" ref={galleryRef}>
         <div className="container">
           <div className="section-header">
@@ -511,8 +510,10 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
+      */}
       
-      {/* Food Showcase Section - Updated to Meal Box */}
+      {/* Food Showcase Section - Updated to Meal Box - DISABLED */}
+      {/*
       <section className="food-showcase-section" ref={showcaseRef}>
         <div className="container">
           <div className="section-header">
@@ -549,6 +550,7 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
+      */}
       
       {/* Testimonials Section */}
       <section className="testimonials-section" id="testimonials" ref={testimonialRef}>
@@ -636,9 +638,11 @@ const Home: React.FC = () => {
           <div className="section-header">
             <h2 className={contactVisible ? 'animate-section' : ''}>Elevate Your Event</h2>
           </div>
-          <p className={`contact-subtitle ${contactVisible ? 'animate-section' : ''}`}>
-            {contactSubmitted ? 'Thank you for your interest in Piquant!' : 'Begin your epicurean experience with Piquant'}
-          </p>
+          {contactSubmitted && (
+            <p className={`contact-subtitle ${contactVisible ? 'animate-section' : ''}`}>
+              Thank you for your interest in Piquant!
+            </p>
+          )}
           <div className={`contact-content ${contactVisible ? 'animate-section' : ''}`}>
             {contactSubmitted ? (
               <div className="contact-form-container" style={{ textAlign: 'center', padding: '40px' }}>

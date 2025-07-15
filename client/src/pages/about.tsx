@@ -102,8 +102,8 @@ const About: React.FC = () => {
   const ctaRef = useRef<HTMLElement>(null);
   
   // Open the modal
-  const openModal = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
+  const openModal = (e?: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
+    if (e) e.preventDefault();
     setModalOpen(true);
     document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
   };
@@ -240,7 +240,6 @@ const About: React.FC = () => {
           <div className={`story-content ${passionVisible ? 'animate-section' : ''}`}>
             <div className="story-text">
               <h2>Our Passion</h2>
-              <div className="decorative-line"></div>
               <p>
                 At Piquant, our passion for <span className="highlight">culinary excellence</span> drives everything we do. 
                 Each dish is crafted with extraordinary attention to detail and 
@@ -259,7 +258,8 @@ const About: React.FC = () => {
         </div>
       </section>
       
-      {/* Our Mission Section - Modern Elegant Layout */}
+      {/* Our Mission Section - Modern Elegant Layout - DISABLED */}
+      {/*
       <section className="mission-section" ref={missionRef} style={{ gap: '0' }}>
         <div className="mission-badge">OUR MISSION</div>
         <div className="mission-image" style={{ paddingRight: '0' }}>
@@ -325,18 +325,12 @@ const About: React.FC = () => {
           </div>
         </div>
       </section>
+      */}
       
-      {/* Our Culinary Process Section - Clean Implementation */}
+      {/* Our Collaborative Process Section - Clean Implementation */}
       <section className="culinary-process-section">
         <div className="culinary-process-container">
-          <h2 className="culinary-process-title no-after-element">Our Culinary Process</h2>
-          <div className="mission-divider" style={{ display: 'block', width: '180px', margin: '-50px auto 25px' }}>
-            <svg width="180" height="12" viewBox="0 0 180 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 6H70" stroke="#F4C38B" strokeWidth="2" strokeLinecap="round"/>
-              <circle cx="90" cy="6" r="5" fill="#F4C38B"/>
-              <path d="M110 6H179" stroke="#F4C38B" strokeWidth="2" strokeLinecap="round"/>
-            </svg>
-          </div>
+          <h2 className="culinary-process-title no-after-element">Our Collaborative Process</h2>
           
           <div className="culinary-process-steps">
             {/* Line connecting all steps */}
@@ -347,8 +341,8 @@ const About: React.FC = () => {
               <div className="culinary-process-icon">
                 <FontAwesomeIcon icon={faComments} />
               </div>
-              <h3>Consultation</h3>
-              <p>We begin by understanding your vision, preferences, and event requirements through a personalized consultation.</p>
+              <h3>Discovery</h3>
+              <p>We start by understanding your vision, preferences, and unique event needs.</p>
             </div>
             
             {/* Step 2 */}
@@ -356,8 +350,8 @@ const About: React.FC = () => {
               <div className="culinary-process-icon">
                 <FontAwesomeIcon icon={faPencilAlt} />
               </div>
-              <h3>Menu Customization</h3>
-              <p>Our chefs craft a custom menu tailored to your event's unique needs, incorporating your preferences and dietary requirements.</p>
+              <h3>Creation</h3>
+              <p>Our chefs craft a custom menu inspired by your tastes, theme, and dietary considerations.</p>
             </div>
             
             {/* Step 3 */}
@@ -365,8 +359,8 @@ const About: React.FC = () => {
               <div className="culinary-process-icon">
                 <FontAwesomeIcon icon={faClipboardCheck} />
               </div>
-              <h3>Tasting</h3>
-              <p>Experience our creations firsthand during a complimentary tasting session, allowing for refinements to ensure perfection.</p>
+              <h3>Refinement</h3>
+              <p>Through a private tasting, we collaborate to perfect every detail.</p>
             </div>
             
             {/* Step 4 */}
@@ -374,14 +368,24 @@ const About: React.FC = () => {
               <div className="culinary-process-icon">
                 <FontAwesomeIcon icon={faCalendarCheck} />
               </div>
-              <h3>Event Day</h3>
-              <p>Our team delivers flawless execution with exceptional service, presentation, and culinary excellence on your special day.</p>
+              <h3>Celebration</h3>
+              <p>On event day, our team delivers beautifully presented dishes and attentive service, so you can fully enjoy the moment.</p>
             </div>
+          </div>
+          
+          <div className="process-contact-section">
+            <button 
+              className="process-contact-btn"
+              onClick={openModal}
+            >
+              Contact Us
+            </button>
           </div>
         </div>
       </section>
       
-      {/* Call to Action Section - Fullwidth Design */}
+      {/* Call to Action Section - Fullwidth Design - DISABLED */}
+      {/*
       <section className="about-cta-section" ref={ctaRef}>
         <div className={`cta-content ${ctaVisible ? 'animate-section' : ''}`}>
           <div className="cta-icons">
@@ -430,6 +434,7 @@ const About: React.FC = () => {
           </a>
         </div>
       </section>
+      */}
       
       {/* Consultation Modal */}
       <div 
