@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef, FormEvent } from 'react';
 import Navbar from '../components/navbar/navbar';
 import Footer from '../components/footer/footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faUtensils, 
-  faBirthdayCake, 
-  faBriefcase, 
-  faUserTie, 
+import {
+  faUtensils,
+  faBirthdayCake,
+  faBriefcase,
+  faUserTie,
   faUsers,
   faDrumstickBite,
   faTimes,
@@ -15,9 +15,7 @@ import {
   faClock,
   faMapMarkerAlt,
   faDownload,
-  faExpand,
-  faChevronLeft,
-  faChevronRight
+  faExternalLinkAlt
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import '../styles/menus.css';
@@ -43,7 +41,6 @@ const Menus: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('breakfast');
   const [menuVisible, setMenuVisible] = useState(false);
   const [packageVisible, setPackageVisible] = useState(false);
-  const [currentPage, setCurrentPage] = useState(0);
 
   
   // Modal states for each package and the custom menu
@@ -472,108 +469,53 @@ const Menus: React.FC = () => {
         </div>
       </section>
 
-      {/* Menu PDFs Section */}
+      {/* Menu PDF Section */}
       <section className="menu-section" ref={menuRef}>
         <div className="container">
           <div className="section-header">
-            <h2>Our Menu Collection</h2>
-            <p>Browse our complete menu pages below</p>
+            <h2>Our Menu</h2>
+            <p>Browse our complete catering menu below</p>
           </div>
-          
-          <div className={`menu-booklet ${menuVisible ? 'animate-section' : ''}`}>
-            <div className="booklet-container">
-              {/* Navigation Arrows */}
-              <button 
-                className={`booklet-arrow booklet-arrow-left ${currentPage === 0 ? 'disabled' : ''}`}
-                onClick={() => {
-                  if (currentPage > 0) {
-                    setCurrentPage(currentPage - 1);
-                  }
-                }}
-                disabled={currentPage === 0}
-                aria-label="Previous page"
+
+          <div className={`menu-viewer ${menuVisible ? 'animate-section' : ''}`}>
+            {/* Action Buttons - always visible */}
+            <div className="menu-actions">
+              <a
+                href={`/assets/menu2/${encodeURIComponent('PiquantCateringMenu - Master.pdf')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="menu-action-btn menu-action-primary"
               >
-                <FontAwesomeIcon icon={faChevronLeft} />
-              </button>
-
-              <button 
-                className={`booklet-arrow booklet-arrow-right ${currentPage === 18 ? 'disabled' : ''}`}
+                <FontAwesomeIcon icon={faExternalLinkAlt} />
+                <span>View Full Menu</span>
+              </a>
+              <button
+                className="menu-action-btn menu-action-secondary"
                 onClick={() => {
-                  if (currentPage < 18) {
-                    setCurrentPage(currentPage + 1);
-                  }
+                  const link = document.createElement('a');
+                  link.href = `/assets/menu2/${encodeURIComponent('PiquantCateringMenu - Master.pdf')}`;
+                  link.download = 'PiquantCateringMenu.pdf';
+                  link.click();
                 }}
-                disabled={currentPage === 18}
-                aria-label="Next page"
               >
-                <FontAwesomeIcon icon={faChevronRight} />
+                <FontAwesomeIcon icon={faDownload} />
+                <span>Download PDF</span>
               </button>
-
-              {/* Page Number Display with Download */}
-              <div className="page-number-display">
-                <span>{currentPage + 1} / 19</span>
-                <button 
-                  className="download-page-btn"
-                  onClick={() => {
-                    const pageNumber = currentPage + 1;
-                    const filename = pageNumber === 2 ? '2 (1).pdf' : `${pageNumber}.pdf`;
-                    const link = document.createElement('a');
-                    link.href = `/assets/menu/${encodeURIComponent(filename)}`;
-                    link.download = `Piquant-Menu-Page-${pageNumber}.pdf`;
-                    link.click();
-                  }}
-                  aria-label="Download current page"
-                >
-                  <FontAwesomeIcon icon={faDownload} />
-                </button>
-              </div>
-
-              {/* Booklet Pages */}
-              <div className="booklet-pages">
-                {(() => {
-                  const pageNumber = currentPage + 1;
-                  let filename;
-                  
-                  if (pageNumber === 2) {
-                    filename = '2 (1).pdf';
-                  } else {
-                    filename = `${pageNumber}.pdf`;
-                  }
-                  
-                  return (
-                    <div className="booklet-page">
-                      <div className="pdf-container">
-                        <div className="pdf-wrapper">
-                          <iframe 
-                            src={`/assets/menu/${encodeURIComponent(filename)}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
-                            title={`Menu page ${pageNumber}`}
-                            className="booklet-pdf-iframe"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })()}
-              </div>
-              
-              {/* Page Indicators */}
-              <div className="page-indicators">
-                {Array.from({ length: 19 }, (_, i) => (
-                  <button
-                    key={i}
-                    className={`page-dot ${i === currentPage ? 'active' : ''}`}
-                    onClick={() => {
-                      if (i !== currentPage) {
-                        setCurrentPage(i);
-                      }
-                    }}
-                    aria-label={`Go to page ${i + 1}`}
-                  />
-                ))}
-              </div>
-              
-
             </div>
+
+            {/* Embedded PDF - visible on desktop, hidden on mobile */}
+            <div className="menu-embed-wrapper">
+              <iframe
+                src={`/assets/menu2/${encodeURIComponent('PiquantCateringMenu - Master.pdf')}#toolbar=1&navpanes=0&scrollbar=1&zoom=50`}
+                title="Piquant Catering Menu"
+                className="menu-embed-iframe"
+              />
+            </div>
+
+            {/* Mobile fallback message */}
+            <p className="menu-mobile-hint">
+              Tap "View Full Menu" above to browse our menu with full zoom and scroll support.
+            </p>
           </div>
         </div>
       </section>

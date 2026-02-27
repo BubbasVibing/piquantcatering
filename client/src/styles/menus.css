@@ -247,280 +247,94 @@
   z-index: 2;
 }
 
-/* Menu Booklet */
-.menu-booklet {
-  margin-top: 60px;
+/* Menu Viewer */
+.menu-viewer {
+  margin-top: 40px;
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s ease;
 }
 
-.menu-booklet.animate-section {
+.menu-viewer.animate-section {
   opacity: 1;
   transform: translateY(0);
 }
 
-.booklet-container {
+/* Menu Action Buttons */
+.menu-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.menu-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-family: var(--body-font);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: 2px solid transparent;
+}
+
+.menu-action-primary {
+  background-color: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+  box-shadow: 0 4px 14px rgba(71, 31, 58, 0.25);
+}
+
+.menu-action-primary:hover {
+  background-color: var(--secondary);
+  color: var(--primary);
+  border-color: var(--secondary);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(71, 31, 58, 0.3);
+}
+
+.menu-action-secondary {
+  background-color: transparent;
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.menu-action-secondary:hover {
+  background-color: var(--primary);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(71, 31, 58, 0.2);
+}
+
+/* Embedded PDF Viewer - desktop only */
+.menu-embed-wrapper {
   max-width: 1000px;
   margin: 0 auto;
-  position: relative;
-  padding: 0 80px;
-}
-
-/* Navigation Arrows */
-.booklet-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--primary);
-  border: 1px solid rgba(71, 31, 58, 0.1);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-  z-index: 10;
-}
-
-.booklet-arrow:hover:not(.disabled) {
-  background: var(--primary);
-  color: white;
-  transform: translateY(-50%) scale(1.05);
-  box-shadow: 0 8px 20px rgba(71, 31, 58, 0.2);
-}
-
-.booklet-arrow.disabled {
-  background: rgba(255, 255, 255, 0.5);
-  color: #ccc;
-  cursor: not-allowed;
-  border-color: rgba(0, 0, 0, 0.05);
-}
-
-.booklet-arrow-left {
-  left: 0;
-}
-
-.booklet-arrow-right {
-  right: 0;
-}
-
-/* Booklet Pages */
-.booklet-pages {
-  position: relative;
-  z-index: 2;
-  perspective: 1200px;
-}
-
-.booklet-page {
-  background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
-  border-radius: 16px;
-  box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.1),
-    0 8px 25px rgba(0, 0, 0, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
   overflow: hidden;
-  position: relative;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #fff;
 }
 
-.booklet-page::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.2) 0%, 
-    transparent 30%, 
-    rgba(0, 0, 0, 0.02) 70%,
-    rgba(0, 0, 0, 0.05) 100%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Elegant corner decoration */
-.booklet-page {
-  position: relative;
-}
-
-.booklet-page::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(-45deg, 
-    transparent 0%, 
-    rgba(244, 195, 139, 0.1) 30%,
-    rgba(244, 195, 139, 0.2) 70%,
-    rgba(244, 195, 139, 0.3) 100%);
-  clip-path: polygon(100% 0%, 0% 0%, 100% 100%);
-  z-index: 4;
-  transition: opacity 0.3s ease;
-}
-
-/* Removed page flip overlay */
-
-/* Page Number Display */
-.page-number-display {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 20px;
-  position: relative;
-  z-index: 2;
-}
-
-.page-number-display span {
-  display: inline-block;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #8B4513;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
-  padding: 8px 20px;
-  border-radius: 25px;
-  border: 1px solid rgba(139, 69, 19, 0.2);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-}
-
-.page-number-display span:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 100%);
-}
-
-/* Download Button */
-.download-page-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, var(--secondary) 0%, #B8860B 100%);
-  border: none;
-  border-radius: 50%;
-  color: white;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
-  position: relative;
-  overflow: hidden;
-}
-
-.download-page-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
-  border-radius: 50%;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.download-page-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.4);
-  background: linear-gradient(135deg, #DAA520 0%, var(--secondary) 100%);
-}
-
-.download-page-btn:hover::before {
-  opacity: 1;
-}
-
-.download-page-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
-}
-
-/* Removed page header styles */
-
-.pdf-container {
-  height: 75vh;
-  max-height: 800px;
-  min-height: 500px;
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
-  border-radius: 0 0 16px 16px;
-  padding: 20px;
-}
-
-.pdf-wrapper {
+.menu-embed-iframe {
   width: 100%;
-  height: 100%;
-  position: relative;
-  perspective: 1000px;
-  transform-style: preserve-3d;
-}
-
-.booklet-pdf-iframe {
-  width: 100%;
-  height: 100%;
+  height: 80vh;
+  max-height: 900px;
+  min-height: 600px;
   border: none;
-  background: white;
   display: block;
-  transform: scale(0.9);
-  transform-origin: center;
-  transition: transform 0.5s ease;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-.booklet-pages.flipping .booklet-pdf-iframe {
-  transform: scale(0.9) rotateY(-15deg);
-}
-
-.booklet-page:hover .booklet-pdf-iframe {
-  transform: scale(0.92);
-}
-
-/* Page Indicators */
-.page-indicators {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  margin: 30px 0 20px 0;
-  position: relative;
-  z-index: 2;
-}
-
-.page-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  border: 1px solid rgba(71, 31, 58, 0.3);
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 0;
-}
-
-.page-dot:hover {
-  background: rgba(71, 31, 58, 0.5);
-  border-color: var(--primary);
-  transform: scale(1.3);
-}
-
-.page-dot.active {
-  background: var(--primary);
-  border-color: var(--primary);
-  transform: scale(1.5);
+/* Mobile hint */
+.menu-mobile-hint {
+  display: none;
 }
 
 
@@ -1567,154 +1381,53 @@ footer {
   }
 }
 
-/* Responsive adjustments for booklet */
+/* Responsive adjustments for menu viewer */
 @media (max-width: 1024px) {
-  .booklet-container {
-    max-width: 95%;
-    padding: 0 60px;
-  }
-  
-  .booklet-arrow {
-    width: 45px;
-    height: 45px;
-    font-size: 1.1rem;
-  }
-  
-  .pdf-container {
+  .menu-embed-iframe {
     height: 70vh;
-    max-height: 650px;
-    min-height: 450px;
-  }
-  
-  .booklet-pdf-iframe {
-    transform: scale(0.85);
-  }
-  
-  /* Removed page header responsive styles */
-  
-  .page-number-display span {
-    font-size: 0.9rem;
-    padding: 6px 16px;
-  }
-  
-  .download-page-btn {
-    width: 36px;
-    height: 36px;
-    font-size: 0.8rem;
-  }
-  
-  .pdf-container {
-    padding: 15px;
+    max-height: 700px;
+    min-height: 500px;
   }
 }
 
 @media (max-width: 768px) {
-  .booklet-container {
-    max-width: 100%;
-    padding: 0 50px;
+  .menu-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
   }
-  
-  .booklet-arrow {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
+
+  .menu-action-btn {
+    width: 100%;
+    max-width: 340px;
+    justify-content: center;
+    padding: 16px 24px;
+    font-size: 1.1rem;
   }
-  
-  .pdf-container {
+
+  .menu-section {
+    padding: 60px 0;
+  }
+
+  .menu-embed-iframe {
     height: 65vh;
-    max-height: 500px;
     min-height: 400px;
-  }
-  
-  .booklet-pdf-iframe {
-    transform: scale(0.8);
-  }
-  
-  /* Removed page header responsive styles */
-  
-  .page-number-display span {
-    font-size: 0.85rem;
-    padding: 5px 14px;
-  }
-  
-  .download-page-btn {
-    width: 34px;
-    height: 34px;
-    font-size: 0.75rem;
-  }
-  
-  .pdf-container {
-    padding: 12px;
-  }
-  
-  .booklet-page::after {
-    width: 30px;
-    height: 30px;
-  }
-  
-  .page-indicators {
-    margin: 20px 0;
-    gap: 5px;
-  }
-  
-  .page-dot {
-    width: 7px;
-    height: 7px;
   }
 }
 
 @media (max-width: 480px) {
-  .booklet-container {
+  .menu-action-btn {
     max-width: 100%;
-    padding: 0 40px;
-    margin: 0 10px;
+    padding: 14px 20px;
+    font-size: 1rem;
   }
-  
-  .booklet-arrow {
-    width: 36px;
-    height: 36px;
-    font-size: 0.9rem;
-  }
-  
-  .pdf-container {
+
+  .menu-embed-iframe {
     height: 60vh;
-    max-height: 400px;
     min-height: 350px;
   }
-  
-  .booklet-pdf-iframe {
-    transform: scale(0.75);
-  }
-  
-  /* Removed page header responsive styles */
-  
-  .page-number-display span {
-    font-size: 0.8rem;
-    padding: 4px 12px;
-  }
-  
-  .download-page-btn {
-    width: 32px;
-    height: 32px;
-    font-size: 0.7rem;
-  }
-  
-  .pdf-container {
-    padding: 10px;
-  }
-  
-  .booklet-page::after {
-    width: 25px;
-    height: 25px;
-  }
-  
-  .page-indicators {
-    margin: 15px 0;
-    gap: 4px;
-  }
-  
-  .page-dot {
-    width: 6px;
-    height: 6px;
+
+  .menu-embed-wrapper {
+    border-radius: 8px;
   }
 }
