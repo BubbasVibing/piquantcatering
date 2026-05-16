@@ -49,6 +49,19 @@ export default function OfferClient() {
           <p className="lf-identity-line">Custom menus for every event.</p>
         </section>
 
+        {/* Food image — sets the tone for the page */}
+        <figure className="lf-image">
+          <Image
+            src="/assets/platingfoodcarefully.jpg"
+            alt=""
+            width={680}
+            height={420}
+            sizes="(max-width: 720px) 90vw, 420px"
+            priority
+            className="lf-image-photo"
+          />
+        </figure>
+
         {/* 2) Hook */}
         <section className="lf-hook">
           <h1>Enjoying the food today?</h1>
