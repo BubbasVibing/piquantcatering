@@ -3,16 +3,16 @@ import { Suspense } from 'react';
 import OfferClient from './OfferClient';
 
 export const metadata: Metadata = {
-  title: 'Catering for 300 Guests — Special Offer',
+  title: 'Loved the Food? — Book Piquant for Your Next Event',
   description:
-    'Reserve Piquant Catering for your 300-guest event. Lock in our chef-curated menu, full-service staff, and elegant presentation. Limited dates available.',
+    'Enjoyed what you tasted tonight? Lock in Piquant Catering for your wedding, corporate event, or private gathering — with a special offer reserved for tonight\u2019s guests.',
   robots: {
     index: false,
     follow: false,
   },
 };
 
-export default function CateringDeal300Page() {
+export default function LovedTheFoodPage() {
   return (
     <Suspense fallback={null}>
       <OfferClient />

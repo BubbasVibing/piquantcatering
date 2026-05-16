@@ -9,6 +9,7 @@ import {
   faCheck,
   faChampagneGlasses,
   faClock,
+  faPercent,
   faShieldHalved,
   faUserTie,
   faUtensils,
@@ -17,43 +18,52 @@ import { useFormspree } from '@/hooks/useFormspree';
 import '@/styles/catering-deal.css';
 
 // ──────────────────────────────────────────────────────────────────────
-// EDIT THESE THREE BLOCKS TO MATCH THE ACTUAL OFFER
+// EDIT THIS BLOCK BEFORE PRINTING THE QR CODE
 // ──────────────────────────────────────────────────────────────────────
 const OFFER = {
-  eyebrow: 'Limited-Time Offer',
-  headlineLead: 'Catering for ',
-  headlineAccent: '300 Guests',
-  headlineTail: ' — done right.',
-  lede: 'Reserve Piquant Catering for your milestone event and lock in our chef-curated menu, full-service staff, and elegant presentation — all coordinated by your own dedicated event manager.',
-  // What guests get bundled in the deal
+  eyebrow: 'A Thank-You From Piquant',
+  // The hero headline reads:  {lead}{accent}{tail}
+  headlineLead: 'Loved what you ',
+  headlineAccent: 'tasted tonight?',
+  headlineTail: ' Bring Piquant to your next event.',
+  lede: 'You\u2019re enjoying food we catered for this evening. If it impressed you, we\u2019d love to do the same for your next wedding, corporate event, or private gathering — with a thank-you offer reserved just for tonight\u2019s guests.',
+
+  // The headline incentive — edit this to the real promo.
+  incentive: {
+    badge: 'For tonight\u2019s guests only',
+    title: '10% off your first booking',
+    body: 'Mention this page when we follow up and we\u2019ll apply 10% off your first event with us, plus a complimentary tasting before you sign anything.',
+  },
+
+  // What Piquant can do for them (kept short — they already know we cook well)
   includes: [
     {
       icon: faUtensils,
-      title: 'Chef-curated menu',
-      body: 'Three-course tasting menu with seasonal Piquant signatures, customized to your event.',
+      title: 'Custom menus',
+      body: 'We design every menu around your event, your guests, and any dietary needs in the room.',
     },
     {
       icon: faUserTie,
       title: 'Full-service team',
-      body: 'Servers, bartenders, and on-site captain — coordinated by a dedicated event manager.',
+      body: 'Servers, bartenders, and a dedicated event manager — we handle everything from setup to cleanup.',
     },
     {
       icon: faChampagneGlasses,
-      title: 'Premium presentation',
-      body: 'Buffet styling, plated service, or family-style — built around your venue and theme.',
+      title: 'Any event, any size',
+      body: 'Weddings, corporate dinners, milestone birthdays, intimate gatherings — 20 to 500+ guests.',
     },
     {
-      icon: faShieldHalved,
-      title: 'Dietary inclusive',
-      body: 'Vegetarian, vegan, gluten-free, and allergen-conscious options for every guest.',
+      icon: faPercent,
+      title: 'Tasters\u2019 perks',
+      body: 'Tonight\u2019s guests get a complimentary tasting and priority dates for the next 12 months.',
     },
   ],
-  // Optional callout pulled from a real review
+
   pullQuote: {
     text: 'Piquant exceeded our expectations in every way. The food was absolutely divine and our guests are still talking about it months later.',
     author: 'Emily & Michael Johnson — Wedding Reception, 280 guests',
   },
-  // Trust signals shown in the hero
+
   trustItems: [
     { icon: faCalendarCheck, text: '15+ years catering' },
     { icon: faClock, text: '24-hour reply' },
@@ -76,6 +86,7 @@ export default function OfferClient() {
       utm_campaign: get('utm_campaign'),
       utm_content: get('utm_content'),
       qr_id: get('qr_id'),
+      event_id: get('event_id'),
     };
   }, [searchParams]);
 
@@ -89,8 +100,8 @@ export default function OfferClient() {
     if (formData.get('_gotcha')) return;
 
     const payload: Record<string, string> = {
-      _subject: '300-Guest Catering Deal — Lead from QR Funnel',
-      offer: '300-guest-catering-deal',
+      _subject: 'Tasted-it Funnel — Lead from QR',
+      offer: 'loved-the-food',
       ...tracking,
     };
     for (const [key, value] of formData.entries()) {
@@ -114,7 +125,7 @@ export default function OfferClient() {
 
           <div className="deal-cta-row">
             <button type="button" className="deal-cta primary" onClick={scrollToForm}>
-              Reserve Your Date
+              Claim My Offer
             </button>
             <a className="deal-cta ghost" href="tel:+19178226951">
               Call (917) 822-6951
@@ -132,10 +143,21 @@ export default function OfferClient() {
         </div>
       </section>
 
+      <section className="deal-incentive">
+        <div className="deal-incentive-card">
+          <span className="deal-incentive-badge">{OFFER.incentive.badge}</span>
+          <h2>{OFFER.incentive.title}</h2>
+          <p>{OFFER.incentive.body}</p>
+          <button type="button" className="deal-cta primary" onClick={scrollToForm}>
+            Claim My Offer
+          </button>
+        </div>
+      </section>
+
       <section className="deal-section">
-        <h2>What&apos;s included in the deal</h2>
+        <h2>How Piquant caters yours</h2>
         <p className="section-sub">
-          A complete catering package for 300 guests — designed to make your event effortless.
+          You already know how the food tastes. Here&apos;s the rest of what we do.
         </p>
         <div className="deal-includes-grid">
           {OFFER.includes.map((item) => (
@@ -162,22 +184,22 @@ export default function OfferClient() {
               <div className="deal-success-icon">
                 <FontAwesomeIcon icon={faCheck} />
               </div>
-              <h2>We&apos;ve got your request</h2>
+              <h2>You&apos;re in.</h2>
               <p>
-                Thanks — our event team will reach out within 24 hours to confirm your date and walk
-                through the menu. Keep an eye on your inbox (and check your phone).
+                Thanks — we&apos;ll be in touch within 24 hours to lock in your offer and start
+                shaping your event. Enjoy the rest of tonight.
               </p>
               <div className="deal-success-next">
-                <Link href="/menus">Browse the menu</Link>
+                <Link href="/menus">Peek at the full menu</Link>
                 <Link href="/reviews">Read recent reviews</Link>
               </div>
             </div>
           ) : (
             <>
-              <h2>Reserve your 300-guest event</h2>
+              <h2>Claim your offer</h2>
               <p className="form-sub">
-                Tell us a little about your event — we&apos;ll come back with availability and a
-                custom proposal within 24 hours.
+                Drop your details and we&apos;ll reach out within 24 hours with availability and a
+                proposal — and your tasters&apos; discount locked in.
               </p>
               <form className="deal-form" onSubmit={handleSubmit} noValidate>
                 <div className="deal-field full">
@@ -223,31 +245,24 @@ export default function OfferClient() {
                 </div>
 
                 <div className="deal-field">
-                  <label htmlFor="deal-date">
-                    Event Date <span className="required">*</span>
-                  </label>
-                  <input type="date" id="deal-date" name="event_date" required />
-                </div>
-
-                <div className="deal-field">
-                  <label htmlFor="deal-venue">Venue / City</label>
+                  <label htmlFor="deal-event-type">Event Type</label>
                   <input
                     type="text"
-                    id="deal-venue"
-                    name="venue"
-                    placeholder="Where the event will be held"
+                    id="deal-event-type"
+                    name="event_type"
+                    placeholder="Wedding, corporate, birthday…"
                   />
                 </div>
 
                 <div className="deal-field full">
                   <label htmlFor="deal-notes">
-                    Anything we should know? (dietary, theme, timing)
+                    Anything we should know? (rough date, guest count, vision)
                   </label>
                   <textarea
                     id="deal-notes"
                     name="message"
-                    rows={4}
-                    placeholder="Tell us about the event…"
+                    rows={3}
+                    placeholder="Optional — tell us what you have in mind…"
                   />
                 </div>
 
@@ -269,10 +284,10 @@ export default function OfferClient() {
                 {error && <div className="deal-form-error">{error}</div>}
 
                 <button type="submit" className="deal-submit" disabled={status === 'submitting'}>
-                  {status === 'submitting' ? 'Sending…' : 'Reserve My Date'}
+                  {status === 'submitting' ? 'Sending…' : 'Claim My Offer'}
                 </button>
                 <p className="deal-form-note">
-                  No commitment — we&apos;ll send a proposal first. Your info stays private.
+                  No commitment. We&apos;ll send a proposal and lock in your offer first.
                 </p>
               </form>
             </>
