@@ -6,8 +6,21 @@
     "dev": "cd client && npm run dev",
     "start": "cd client && npm run dev",
     "build": "cd client && npm install && npm run build",
-    "preview": "cd client && npm run preview"
+    "preview": "cd client && npm run preview",
+    "dev:web": "cd web && npm run dev",
+    "build:web": "cd web && npm install && npm run build",
+    "prepare": "husky"
   },
   "author": "",
-  "license": "ISC"
-} 
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.4",
+    "prettier": "^3.8.3"
+  },
+  "lint-staged": {
+    "web/**/*.{ts,tsx,js,jsx,css,json,md}": [
+      "prettier --write"
+    ]
+  }
+}
