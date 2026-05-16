@@ -52,10 +52,10 @@ export default function OfferClient() {
         {/* Food image — sets the tone for the page */}
         <figure className="lf-image">
           <Image
-            src="/assets/platingfoodcarefully.jpg"
+            src="/assets/funnelimage/funnelimage.png"
             alt=""
-            width={680}
-            height={420}
+            width={880}
+            height={586}
             sizes="(max-width: 720px) 90vw, 420px"
             priority
             className="lf-image-photo"

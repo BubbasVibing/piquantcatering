@@ -54,7 +54,7 @@ body:has(.lf-page) > footer {
   margin: 0 0 18px;
   border-radius: 14px;
   overflow: hidden;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 3 / 2;
   box-shadow: 0 8px 20px rgba(71, 31, 58, 0.1);
 }
 
