@@ -60,6 +60,9 @@ export default function OfferClient() {
 
         {/* 3) Primary CTA */}
         <section className="lf-cta-wrap">
+          <span className="lf-urgency" aria-hidden="true">
+            <span className="lf-urgency-dot" />A few dates still open this season
+          </span>
           <a className="lf-call" href={`tel:${PHONE_TEL}`}>
             <FontAwesomeIcon icon={faPhone} className="lf-call-icon" />
             <span>Call the Chef</span>
