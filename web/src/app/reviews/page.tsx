@@ -1,4 +1,7 @@
 import type { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd/JsonLd';
+import { reviews } from '@/data/reviews';
+import { buildReviewJsonLd } from '@/lib/structuredData';
 import ReviewsClient from './ReviewsClient';
 
 export const metadata: Metadata = {
@@ -8,5 +11,10 @@ export const metadata: Metadata = {
 };
 
 export default function ReviewsPage() {
-  return <ReviewsClient />;
+  return (
+    <>
+      <ReviewsClient />
+      <JsonLd data={buildReviewJsonLd(reviews)} />
+    </>
+  );
 }
