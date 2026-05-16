@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef, FormEvent } from 'react';
 import Navbar from '../components/navbar/navbar';
 import Footer from '../components/footer/footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faWineGlassAlt, 
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import {
+  faWineGlassAlt,
   faBirthdayCake, 
   faUserGraduate, 
   faRing, 
@@ -27,7 +28,7 @@ interface EventType {
   id: string;
   title: string;
   description: string;
-  icon: any;
+  icon: IconDefinition;
   image: string;
   features: string[];
 }
@@ -64,7 +65,6 @@ const EventsCatering: React.FC = () => {
               setEventsVisible(true);
             } else if (entry.target === testimonialRef.current) {
               setTestimonialVisible(true);
-              console.log('Testimonial section is now visible');
             }
           }
         });
@@ -301,7 +301,7 @@ const EventsCatering: React.FC = () => {
           
           <div className="intro-content">
             <div className="intro-image">
-              <img src="/assets/bespokecateringservice.jpg" alt="Elegant catering setup" />
+              <img src="/assets/events/eventschickenthingy.png" alt="Elegant catering setup" />
             </div>
             <div className="intro-text">
               <h3>Bespoke Catering Services</h3>
@@ -487,7 +487,7 @@ const EventsCatering: React.FC = () => {
               </div>
             </div>
             <div className="contact-image">
-              <img src="/assets/planningcateringevent.jpg" alt="Event planning consultation" />
+              <img src="/assets/events/eventsbeef.png" alt="Event planning consultation" />
             </div>
           </div>
         </div>

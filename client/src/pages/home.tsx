@@ -20,8 +20,6 @@ import {
   faPepperHot,
   faCalendarAlt,
   faHatCowboy,
-  faTruck,
-  faPalette,
   faTimes,
   faEnvelope,
   faPhone,
@@ -45,16 +43,12 @@ const Home: React.FC = () => {
   
   const aboutImageRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLElement>(null);
-  const galleryRef = useRef<HTMLElement>(null);
   const testimonialRef = useRef<HTMLElement>(null);
   const contactRef = useRef<HTMLElement>(null);
-  const showcaseRef = useRef<HTMLElement>(null);
-  
+
   const [servicesVisible, setServicesVisible] = useState(false);
-  const [galleryVisible, setGalleryVisible] = useState(false);
   const [testimonialVisible, setTestimonialVisible] = useState(false);
   const [contactVisible, setContactVisible] = useState(false);
-  const [showcaseVisible, setShowcaseVisible] = useState(false);
   
   const subtitle = "Extraordinary culinary artistry for life's most meaningful celebrations";
   
@@ -99,14 +93,10 @@ const Home: React.FC = () => {
             const target = entry.target;
             if (target === servicesRef.current) {
               setServicesVisible(true);
-            } else if (target === galleryRef.current) {
-              setGalleryVisible(true);
             } else if (target === testimonialRef.current) {
               setTestimonialVisible(true);
             } else if (target === contactRef.current) {
               setContactVisible(true);
-            } else if (target === showcaseRef.current) {
-              setShowcaseVisible(true);
             }
             
             // Unobserve after animation triggered
@@ -125,50 +115,32 @@ const Home: React.FC = () => {
     if (servicesRef.current) {
       sectionObserver.observe(servicesRef.current);
     }
-    
-    if (galleryRef.current) {
-      sectionObserver.observe(galleryRef.current);
-    }
-    
+
     if (testimonialRef.current) {
       sectionObserver.observe(testimonialRef.current);
     }
-    
+
     if (contactRef.current) {
       sectionObserver.observe(contactRef.current);
     }
-    
-    if (showcaseRef.current) {
-      sectionObserver.observe(showcaseRef.current);
-    }
 
     return () => {
-      // Clean up all observers
       if (aboutImageRef.current) {
         imageObserver.unobserve(aboutImageRef.current);
       }
-      
+
       if (servicesRef.current) {
         sectionObserver.unobserve(servicesRef.current);
       }
-      
-      if (galleryRef.current) {
-        sectionObserver.unobserve(galleryRef.current);
-      }
-      
+
       if (testimonialRef.current) {
         sectionObserver.unobserve(testimonialRef.current);
       }
-      
+
       if (contactRef.current) {
         sectionObserver.unobserve(contactRef.current);
       }
-      
-      if (showcaseRef.current) {
-        sectionObserver.unobserve(showcaseRef.current);
-      }
-      
-      // Cleanup modal
+
       document.body.style.overflow = 'auto';
     };
   }, [subtitle.length]);
@@ -413,7 +385,7 @@ const Home: React.FC = () => {
                   <img src="/assets/burgerfries.png" alt="Gourmet burger and fries" />
                 </div>
                 <div className="buffet-image">
-                  <img src="/assets/beefthingies.png" alt="Premium beef appetizers" />
+                  <img src="/assets/events/eventsbeef.png" alt="Premium beef appetizers" />
                 </div>
                 <div className="buffet-image">
                   <img src="/assets/hummusmeal.jpg" alt="Fresh hummus meal with premium ingredients" />
@@ -438,120 +410,7 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
-      
-      {/* Gallery Section - Card-based Layout - DISABLED */}
-      {/*
-      <section className="gallery-section" ref={galleryRef}>
-        <div className="container">
-          <div className="section-header">
-            <h2 className={galleryVisible ? 'animate-section' : ''}>
-              Our <span className="highlight">Culinary</span> Experience
-            </h2>
-            <p className="gallery-subtitle">Discover the unique flavors and exceptional service that define Piquant catering</p>
-          </div>
-          
-          <div className={`services-cards ${galleryVisible ? 'animate-section' : ''}`}>
-            <div className="service-card-item">
-              <div className="card-icon">
-                <FontAwesomeIcon icon={faUtensils} />
-              </div>
-              <div className="card-image">
-                <img src="/assets/hummusmeal.jpg" alt="Fresh hummus meal with premium ingredients" />
-              </div>
-              <div className="card-content">
-                <h4>Premium <span className="highlight">Ingredients</span></h4>
-                <p>We source the finest local and seasonal ingredients to create dishes that are fresh and vibrant</p>
-              </div>
-            </div>
-            
-            <div className="service-card-item">
-              <div className="card-icon">
-                <FontAwesomeIcon icon={faCalendarAlt} />
-              </div>
-              <div className="card-image">
-                <img src="/assets/baconeggcheese.jpg" alt="Delicious bacon egg and cheese dish" />
-              </div>
-              <div className="card-content">
-                <h4><span className="highlight">Sample</span> Before You Decide</h4>
-                <p>We invite you to taste our creations before your event to ensure a perfect menu selection</p>
-              </div>
-            </div>
-            
-            <div className="service-card-item highlight-card">
-              <div className="card-icon">
-                <FontAwesomeIcon icon={faPalette} />
-              </div>
-              <div className="card-image">
-                <img src="/assets/saladforpiquantcatering.jpg" alt="Beautifully presented gourmet salad" />
-              </div>
-              <div className="card-content">
-                <h4>Artful <span className="highlight">Presentation</span></h4>
-                <p>Each dish is crafted with meticulous attention to detail and aesthetically presented</p>
-              </div>
-            </div>
-            
-            <div className="service-card-item">
-              <div className="card-icon">
-                <FontAwesomeIcon icon={faTruck} />
-              </div>
-              <div className="card-image">
-                <img src="/assets/deilveredfood.jpg" alt="Professionally delivered food packages" />
-              </div>
-              <div className="card-content">
-                <h4>Seamless <span className="highlight">Service</span></h4>
-                <p>From planning to cleanup, our professional team ensures every aspect of your event runs smoothly</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="services-cta">
-            <Link to="/contact" className="cta-button tasting-button">Schedule a Tasting</Link>
-            <Link to="/menus" className="cta-button menu-button">View Our Menu</Link>
-          </div>
-        </div>
-      </section>
-      */}
-      
-      {/* Food Showcase Section - Updated to Meal Box - DISABLED */}
-      {/*
-      <section className="food-showcase-section" ref={showcaseRef}>
-        <div className="container">
-          <div className="section-header">
-            <h2 className={showcaseVisible ? 'animate-section' : ''}>Meal Box Experience</h2>
-          </div>
-          <div className={`showcase-content ${showcaseVisible ? 'animate-section' : ''}`}>
-            <div className="showcase-text">
-              <h3>Chef-Crafted Meal Boxes</h3>
-              <p>
-                Experience Piquant's culinary excellence at home with our premium meal box service. 
-                Each box contains restaurant-quality ingredients, precisely portioned and prepped by our 
-                chefs, along with easy-to-follow instructions to create an extraordinary dining 
-                experience in your own kitchen.
-              </p>
-              <p>
-                Perfect for special occasions, corporate gifting, or elevating your everyday dining. 
-                Our meal boxes are available for delivery and can be customized to accommodate 
-                dietary preferences and requirements.
-              </p>
-              <div className="showcase-links">
-                <Link to="/food-partnerships" className="showcase-link partnerships">Explore Partnerships</Link>
-                <Link to="/menus" className="showcase-link menus">View Meal Box Menu</Link>
-              </div>
-            </div>
-            <div className="showcase-images">
-              <div className="showcase-large">
-                <img src="/assets/packedmealsforthe.png" alt="Premium packaged meal box delivery" />
-              </div>
-              <div className="showcase-small">
-                <img src="/assets/chefmakingfood.jpg" alt="Chef preparing gourmet meals in kitchen" />
-                <img src="/assets/morepackedmeals.jpg" alt="Variety of prepared packed meals ready for delivery" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      */}
-      
+
       {/* Testimonials Section */}
       <section className="testimonials-section" id="testimonials" ref={testimonialRef}>
         <div className="container">

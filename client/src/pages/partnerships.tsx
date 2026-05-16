@@ -240,7 +240,7 @@ const Partnerships: React.FC = () => {
               <img src="/assets/socialgatheringcatering.jpg" alt="Event catering display" />
             </div>
             <div className="overview-image">
-              <img src="/assets/planningcateringevent.jpg" alt="Catering planning" />
+              <img src="/assets/partnerships/partnerships.png" alt="Partnership catering spread" />
             </div>
           </div>
         </div>

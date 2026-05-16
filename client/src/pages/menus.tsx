@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, FormEvent } from 'react';
 import Navbar from '../components/navbar/navbar';
 import Footer from '../components/footer/footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
   faUtensils,
   faBirthdayCake,
@@ -24,7 +25,7 @@ import '../styles/home.css'; // Import home.css for modal styles
 interface MenuCategory {
   id: string;
   name: string;
-  icon?: any;
+  icon?: IconDefinition;
 }
 
 interface MenuItem {
@@ -38,11 +39,9 @@ interface MenuItem {
 }
 
 const Menus: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState('breakfast');
   const [menuVisible, setMenuVisible] = useState(false);
   const [packageVisible, setPackageVisible] = useState(false);
 
-  
   // Modal states for each package and the custom menu
   const [essentialModalOpen, setEssentialModalOpen] = useState(false);
   const [premiumModalOpen, setPremiumModalOpen] = useState(false);
@@ -401,9 +400,6 @@ const Menus: React.FC = () => {
     }
   ];
 
-  // Filter menu items by category
-  const filteredMenuItems = menuItems.filter(item => item.category === activeCategory);
-
   // Catering packages
   const cateringPackages = [
     {
@@ -418,7 +414,7 @@ const Menus: React.FC = () => {
         'Soft drinks and water',
         'Basic service staff'
       ],
-      image: '/assets/essentialpackagecater.jpg',
+      image: '/assets/menuimages/piquantclassic.png',
       recommended: false
     },
     {
@@ -434,7 +430,7 @@ const Menus: React.FC = () => {
         'Professional service staff',
         'Basic table setup and decoration'
       ],
-      image: '/assets/premiumcateringpackage.jpg',
+      image: '/assets/menuimages/piquantpremium.png',
       recommended: true
     },
     {
@@ -451,7 +447,7 @@ const Menus: React.FC = () => {
         'Premium table setup and decoration',
         'Custom menu planning with executive chef'
       ],
-      image: '/assets/luxurypackagecatering.jpg',
+      image: '/assets/menuimages/piquantsignature.png',
       recommended: false
     }
   ];

@@ -137,7 +137,7 @@ const reviews = [
 
 // Sample food image paths
 const foodImages = {
-  mainDish: '/assets/luxurypackagecatering.jpg',
+  mainDish: '/assets/menuimages/piquantsignature.png',
   appetizer: '/assets/hummusmeal.jpg',
   dessert: '/assets/herosectionpiquant1.jpg',
   beverage: '/assets/food-beverage.jpg',
@@ -147,7 +147,6 @@ const foodImages = {
 
 const Reviews: React.FC = () => {
   const [activePage, setActivePage] = useState(1);
-  const [filteredReviews] = useState(reviews);
   const reviewsPerPage = 6;
   
   // Refs for intersection observer
@@ -195,8 +194,8 @@ const Reviews: React.FC = () => {
   // Get current reviews for pagination
   const indexOfLastReview = activePage * reviewsPerPage;
   const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
-  const currentReviews = filteredReviews.slice(indexOfFirstReview, indexOfLastReview);
-  const totalPages = Math.ceil(filteredReviews.length / reviewsPerPage);
+  const currentReviews = reviews.slice(indexOfFirstReview, indexOfLastReview);
+  const totalPages = Math.ceil(reviews.length / reviewsPerPage);
 
   // Calculate rating stats
   const averageRating = (reviews.reduce((total, review) => total + review.rating, 0) / reviews.length).toFixed(1);
@@ -432,7 +431,7 @@ const Reviews: React.FC = () => {
               <div className="image-stack">
                 <div className="food-image">
                   <img 
-                    src="/assets/luxurypackagecatering.jpg"
+                    src="/assets/menuimages/piquantsignature.png"
                     alt="Luxury catering showcase with shrimp cocktails and appetizers" 
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
                   />
