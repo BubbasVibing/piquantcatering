@@ -1,64 +1,61 @@
 # Piquant Catering
 
-A luxury catering website built with React, TypeScript, and Vite.
+Luxury catering website. Built with Next.js 16 (App Router), TypeScript, React 19, and CSS Modules. Deployed on Vercel.
 
-## Getting Started
-
-### Prerequisites
-
-- Node.js (v16.0.0 or higher)
-- npm (v7.0.0 or higher)
-
-### Installation
-
-1. Clone the repository
-2. Install dependencies:
-   ```
-   npm install
-   cd client && npm install
-   ```
-
-### Development
-
-To start the development server:
+## Quick start
 
 ```
+npm install
+npm install --prefix web
+cp web/.env.example web/.env.local  # then fill in NEXT_PUBLIC_FORMSPREE_ENDPOINT
 npm run dev
 ```
 
-This will start the Vite development server and open the application in your default browser.
+The site runs on http://localhost:3000.
 
-### Building for Production
+## Common scripts
 
-To build the application for production:
+| Script              | What it does                                     |
+| ------------------- | ------------------------------------------------ |
+| `npm run dev`       | Start Next.js in dev mode (proxies into `web/`). |
+| `npm run build`     | Production build (`next build`).                 |
+| `npm run start`     | Run the production build locally.                |
+| `npm run lint`      | ESLint over `web/`.                              |
+| `npm run test`      | Run the Vitest test suite once.                  |
+| `npm run format`    | Format the repo with Prettier.                   |
+
+You can run any of these directly inside `web/` too.
+
+## Project layout
 
 ```
-npm run build
+web/
+├── src/
+│   ├── app/             # Routes (App Router). Each folder = a route.
+│   ├── components/      # Reusable UI: Navbar, Footer, Modal, FormModal, …
+│   ├── data/            # Page content: menuItems, reviews, eventTypes, …
+│   ├── hooks/           # useFormspree, useInViewAnimation
+│   ├── lib/             # structuredData (JSON-LD builders)
+│   ├── styles/          # Page-level CSS (one per route)
+│   └── types/           # Shared TS types
+├── public/assets/       # Images, the menu PDF, favicon
+├── vitest.config.mts    # Test configuration
+└── next.config.ts       # Next.js configuration
 ```
 
-The build artifacts will be stored in the `client/dist` directory.
+## Environment variables
 
-### Preview Production Build
+| Name                              | Where it's used                          |
+| --------------------------------- | ---------------------------------------- |
+| `NEXT_PUBLIC_FORMSPREE_ENDPOINT`  | Every contact / inquiry form submits here. |
+| `NEXT_PUBLIC_SITE_URL`            | Used in metadata, sitemap, JSON-LD.        |
 
-To preview the production build locally:
+Set these in Vercel's project settings for the production deploy.
 
-```
-npm run preview
-```
+## Deployment
 
-## Project Structure
+Vercel auto-detects the framework. The root `vercel.json` runs `cd web && npm install && npm run build` and serves the resulting `web/.next` directory. Set the env vars in the Vercel dashboard before the first build.
 
-- `client/` - Contains the React application
-  - `src/` - Source code
-    - `components/` - Reusable UI components
-    - `pages/` - Page components
-    - `styles/` - CSS styles
-    - `assets/` - Static assets like images
-- `public/` - Static files that will be served directly
+## CI
 
-## Available Scripts
-
-- `npm run dev` - Starts the development server
-- `npm run build` - Builds the app for production
-- `npm run preview` - Previews the production build
-- `npm run clean` - Cleans node_modules and reinstalls dependencies 
+GitHub Actions (`.github/workflows/ci.yml`) runs Prettier, ESLint, Vitest, and a full Next.js build on every PR.

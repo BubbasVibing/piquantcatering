@@ -1,10 +1,6 @@
 {
-  "buildCommand": "cd client && npm install && npm run build",
-  "outputDirectory": "client/dist",
+  "buildCommand": "cd web && npm install && npm run build",
+  "outputDirectory": "web/.next",
   "installCommand": "npm install",
-  "framework": "vite",
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/index.html" }
-  ]
-} 
+  "framework": "nextjs"
+}
