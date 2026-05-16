@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: 'Reviews',
   description:
     'Read reviews from clients who chose Piquant Catering for their weddings, corporate events, and private gatherings.',
+  alternates: { canonical: '/reviews' },
 };
 
 export default function ReviewsPage() {

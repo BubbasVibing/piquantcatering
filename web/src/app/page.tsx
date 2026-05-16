@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'Piquant Catering',
   description:
     'Piquant Catering delivers luxury catering for weddings, corporate events, and private celebrations across New Jersey and New York.',
+  alternates: { canonical: '/' },
 };
 
 export default function HomePage() {

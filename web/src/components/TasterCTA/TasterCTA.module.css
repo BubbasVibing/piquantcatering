@@ -1,0 +1,55 @@
+.fab {
+  position: fixed;
+  z-index: 1500;
+  right: 20px;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  box-shadow: 0 14px 32px rgba(71, 31, 58, 0.32);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease;
+}
+
+.fab:hover,
+.fab:focus-visible {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 38px rgba(71, 31, 58, 0.4);
+}
+
+.fab:active {
+  transform: translateY(0);
+}
+
+.fab svg {
+  font-size: 0.78rem;
+  transition: transform 0.2s ease;
+}
+
+.fab:hover svg,
+.fab:focus-visible svg {
+  transform: translateX(3px);
+}
+
+@media (max-width: 600px) {
+  .fab {
+    right: 16px;
+    left: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    justify-content: center;
+    padding: 16px 22px;
+    font-size: 1rem;
+  }
+}

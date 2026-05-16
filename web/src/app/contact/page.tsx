@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: 'Contact',
   description:
     'Get in touch with Piquant Catering. Reach our team in Pennsauken and Englewood, NJ, or send us a message about your upcoming event.',
+  alternates: { canonical: '/contact' },
 };
 
 const allFaqs = Object.values(faqs).flat();
