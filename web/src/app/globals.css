@@ -1,3 +1,20 @@
+:root {
+  --primary: #471f3a;
+  --primary-light: #572a47;
+  --primary-ultra-light: #f6f2f5;
+  --secondary: #f4c38b;
+  --secondary-light: #f8d9ad;
+  --secondary-ultra-light: #faf5ed;
+  --white: #ffffff;
+  --off-white: #f9f9f9;
+  --light-gray: #f4f4f4;
+  --text-dark: #333333;
+  --text-medium: #666666;
+  --heading-font: var(--font-poppins), 'Poppins', sans-serif;
+  --body-font: var(--font-poppins), 'Poppins', sans-serif;
+  --transition: all 0.3s ease;
+}
+
 *,
 *::before,
 *::after {
@@ -63,4 +80,16 @@ ol {
 *:focus-visible {
   outline: 2px solid #471f3a;
   outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
