@@ -3,8 +3,9 @@
 import { useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import '@/styles/loved-the-food.css';
 
@@ -81,6 +82,11 @@ export default function OfferClient() {
 
         {/* 6) Footer */}
         <footer className="lf-footer">
+          <p className="lf-footer-line lf-footer-explore">
+            <Link href="/">
+              See more from Piquant <FontAwesomeIcon icon={faArrowRight} />
+            </Link>
+          </p>
           <p className="lf-footer-line">{SERVICE_AREA}</p>
           <p className="lf-footer-line">{PHONE_DISPLAY}</p>
           <p className="lf-footer-line">
