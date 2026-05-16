@@ -12,7 +12,7 @@ body:has(.lf-page) > footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 36px 22px 28px;
+  padding: 16px 22px 24px;
 }
 
 .lf-container {
@@ -29,17 +29,17 @@ body:has(.lf-page) > footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
-  padding-bottom: 36px;
+  gap: 8px;
+  padding-bottom: 20px;
 }
 
 .lf-identity-logo {
-  width: 140px;
+  width: 124px;
   height: auto;
 }
 
 .lf-identity-line {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 300;
   font-style: italic;
   color: var(--text-medium);
@@ -49,21 +49,21 @@ body:has(.lf-page) > footer {
 
 /* 2) Hook */
 .lf-hook {
-  padding: 8px 0 28px;
+  padding: 0 0 18px;
 }
 
 .lf-hook h1 {
-  font-size: clamp(2rem, 7vw, 2.4rem);
+  font-size: clamp(1.9rem, 6.8vw, 2.3rem);
   font-weight: 500;
   color: var(--primary);
-  line-height: 1.2;
-  margin: 0 0 18px;
+  line-height: 1.18;
+  margin: 0 0 12px;
   letter-spacing: 0.2px;
 }
 
 .lf-hook-sub {
-  font-size: 1.02rem;
-  line-height: 1.55;
+  font-size: 0.98rem;
+  line-height: 1.5;
   color: var(--text-medium);
   font-weight: 300;
   margin: 0;
@@ -73,11 +73,11 @@ body:has(.lf-page) > footer {
 /* 3) Primary CTA */
 .lf-cta-wrap {
   width: 100%;
-  padding: 4px 0 22px;
+  padding: 0 0 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
 }
 
 .lf-urgency {
@@ -121,8 +121,8 @@ body:has(.lf-page) > footer {
   align-items: center;
   justify-content: center;
   gap: 14px;
-  padding: 24px 24px;
-  border-radius: 16px;
+  padding: 20px 24px;
+  border-radius: 14px;
   background: linear-gradient(135deg, var(--primary) 0%, #3a1831 100%);
   color: #ffffff;
   font-size: 1.22rem;
@@ -194,20 +194,20 @@ body:has(.lf-page) > footer {
 
 /* 4) Trust line */
 .lf-trust {
-  font-size: 0.96rem;
-  line-height: 1.6;
+  font-size: 0.94rem;
+  line-height: 1.55;
   color: var(--text-dark);
-  margin: 22px 0 0;
+  margin: 14px 0 0;
   max-width: 420px;
-  padding: 22px 0;
+  padding: 16px 0;
   border-top: 1px solid #efe5ec;
   border-bottom: 1px solid #efe5ec;
 }
 
 /* 5) Secondary capture */
 .lf-secondary {
-  margin: 26px 0 10px;
-  font-size: 0.95rem;
+  margin: 16px 0 6px;
+  font-size: 0.93rem;
   color: var(--text-medium);
 }
 
@@ -227,10 +227,10 @@ body:has(.lf-page) > footer {
 /* 6) Footer */
 .lf-footer {
   margin-top: auto;
-  padding-top: 40px;
-  font-size: 0.85rem;
+  padding-top: 28px;
+  font-size: 0.83rem;
   color: var(--text-medium);
-  line-height: 1.7;
+  line-height: 1.6;
   text-align: center;
 }
 
@@ -253,8 +253,8 @@ body:has(.lf-page) > footer {
 }
 
 .lf-footer-explore {
-  margin-bottom: 18px;
-  padding-bottom: 18px;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
   border-bottom: 1px solid #efe5ec;
 }
 
@@ -280,14 +280,14 @@ body:has(.lf-page) > footer {
 
 @media (min-width: 720px) {
   .lf-page {
-    padding-top: 64px;
+    padding-top: 32px;
   }
 
   .lf-identity-logo {
-    width: 160px;
+    width: 140px;
   }
 
   .lf-hook h1 {
-    font-size: 2.6rem;
+    font-size: 2.4rem;
   }
 }
