@@ -12,7 +12,7 @@ import styles from './TasterCTA.module.css';
 const HIDDEN_ON: readonly string[] = ['/loved-the-food'];
 
 const DISMISS_KEY = 'piquant:taster-popup-dismissed';
-const SHOW_DELAY_MS = 6000;
+const SHOW_DELAY_MS = 1200;
 
 export default function TasterCTA() {
   const pathname = usePathname();
