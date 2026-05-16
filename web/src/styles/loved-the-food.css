@@ -29,21 +29,22 @@ body:has(.lf-page) > footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  padding-bottom: 28px;
+  gap: 14px;
+  padding-bottom: 36px;
 }
 
 .lf-identity-logo {
-  width: 110px;
+  width: 140px;
   height: auto;
 }
 
 .lf-identity-line {
-  font-size: 0.82rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
+  font-size: 0.95rem;
+  font-weight: 300;
+  font-style: italic;
   color: var(--text-medium);
   margin: 0;
+  letter-spacing: 0.1px;
 }
 
 /* 2) Hook */
@@ -190,7 +191,7 @@ body:has(.lf-page) > footer {
   }
 
   .lf-identity-logo {
-    width: 130px;
+    width: 160px;
   }
 
   .lf-hook h1 {

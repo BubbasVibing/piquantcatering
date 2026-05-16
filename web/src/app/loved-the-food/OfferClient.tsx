@@ -45,7 +45,7 @@ export default function OfferClient() {
             priority
             className="lf-identity-logo"
           />
-          <p className="lf-identity-line">French bistro catering.</p>
+          <p className="lf-identity-line">Custom menus for every event.</p>
         </section>
 
         {/* 2) Hook */}
