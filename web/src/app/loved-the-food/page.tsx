@@ -3,9 +3,9 @@ import { Suspense } from 'react';
 import OfferClient from './OfferClient';
 
 export const metadata: Metadata = {
-  title: 'Loved the Food? — Book Piquant for Your Next Event',
+  title: 'Enjoying the food today? Call the Chef.',
   description:
-    'Enjoyed what you tasted tonight? Lock in Piquant Catering for your wedding, corporate event, or private gathering — with a special offer reserved for tonight\u2019s guests.',
+    'Piquant is a French bistro catering company. We design custom menus for weddings, corporate events, and private gatherings. Tap to call the chef.',
   robots: {
     index: false,
     follow: false,
