@@ -1,0 +1,55 @@
+import type { CateringPackage } from '@/types/content';
+
+export const cateringPackages: CateringPackage[] = [
+  {
+    id: 'essential',
+    title: 'Essential Package',
+    description: 'Perfect for intimate gatherings and small events',
+    price: '$',
+    features: [
+      'Selection of 3 appetizers',
+      '2 main course options',
+      '2 side dishes',
+      '1 dessert option',
+      'Soft drinks and water',
+      'Basic service staff',
+    ],
+    image: '/assets/menuimages/piquantclassic.png',
+    recommended: false,
+  },
+  {
+    id: 'premium',
+    title: 'Premium Package',
+    description: 'Ideal for medium-sized events and corporate functions',
+    price: '$$',
+    features: [
+      'Selection of 5 appetizers',
+      '3 main course options',
+      '3 side dishes',
+      '2 dessert options',
+      'Soft drinks, juices, and water',
+      'Professional service staff',
+      'Basic table setup and decoration',
+    ],
+    image: '/assets/menuimages/piquantpremium.png',
+    recommended: true,
+  },
+  {
+    id: 'luxury',
+    title: 'Luxury Package',
+    description: 'The ultimate catering experience for special occasions',
+    price: '$$$',
+    features: [
+      'Selection of 7 appetizers',
+      '4 main course options with premium ingredients',
+      '4 side dishes',
+      '3 dessert options',
+      'Full beverage service including mocktails',
+      'Professional service staff with dedicated event manager',
+      'Premium table setup and decoration',
+      'Custom menu planning with executive chef',
+    ],
+    image: '/assets/menuimages/piquantsignature.png',
+    recommended: false,
+  },
+];
