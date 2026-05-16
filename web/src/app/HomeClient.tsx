@@ -38,14 +38,14 @@ const POPUP_FIELDS: FormField[] = [
 
 function HeroSubtitle() {
   return (
-    <div className="luxury-reveal">
+    <span className="luxury-reveal">
       {HERO_SUBTITLE.split(' ').map((word, index, words) => (
         <span key={`${word}-${index}`} className="word" data-delay={index}>
           {word}
           {index < words.length - 1 && <span className="space">&nbsp;</span>}
         </span>
       ))}
-    </div>
+    </span>
   );
 }
 
