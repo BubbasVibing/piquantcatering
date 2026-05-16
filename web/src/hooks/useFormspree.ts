@@ -11,8 +11,6 @@ export interface UseFormspreeResult {
   reset: () => void;
 }
 
-const ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
-
 export function useFormspree(): UseFormspreeResult {
   const [status, setStatus] = useState<FormspreeStatus>('idle');
   const [error, setError] = useState<string | null>(null);
@@ -23,7 +21,8 @@ export function useFormspree(): UseFormspreeResult {
   }, []);
 
   const submit = useCallback(async (payload: Record<string, FormDataEntryValue | string>) => {
-    if (!ENDPOINT) {
+    const endpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
+    if (!endpoint) {
       const message = 'NEXT_PUBLIC_FORMSPREE_ENDPOINT is not configured';
       console.error(message);
       setStatus('error');
@@ -35,7 +34,7 @@ export function useFormspree(): UseFormspreeResult {
     setError(null);
 
     try {
-      const response = await fetch(ENDPOINT, {
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: { Accept: 'application/json' },
         body: toFormData(payload),
