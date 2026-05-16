@@ -150,10 +150,10 @@ export default function EventsClient() {
           <div className="intro-content">
             <div className="intro-image">
               <Image
-                src="/assets/events/eventschickenthingy.png"
-                alt="Elegant catering setup"
-                width={800}
-                height={600}
+                src="/assets/images/eventcatering.png"
+                alt="Bespoke event catering by Piquant"
+                width={1138}
+                height={756}
               />
             </div>
             <div className="intro-text">
