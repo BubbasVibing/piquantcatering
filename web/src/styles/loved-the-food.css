@@ -12,7 +12,7 @@ body:has(.lf-page) > footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 8px 22px 24px;
+  padding: 0 22px 24px;
 }
 
 .lf-container {
@@ -34,8 +34,9 @@ body:has(.lf-page) > footer {
 }
 
 .lf-identity-logo {
-  width: 124px;
+  width: 168px;
   height: auto;
+  margin-top: -6px;
 }
 
 .lf-identity-line {
@@ -274,11 +275,11 @@ body:has(.lf-page) > footer {
 
 @media (min-width: 720px) {
   .lf-page {
-    padding-top: 22px;
+    padding-top: 12px;
   }
 
   .lf-identity-logo {
-    width: 140px;
+    width: 188px;
   }
 
   .lf-hook h1 {
