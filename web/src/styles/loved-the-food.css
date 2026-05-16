@@ -12,7 +12,10 @@ body:has(.lf-page) > footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 22px 24px;
+  /* Add enough breathing room on mobile so the logo clears the
+     browser chrome / notch (env() falls back to 0 on browsers
+     that don't expose it). */
+  padding: calc(24px + env(safe-area-inset-top, 0px)) 22px 24px;
 }
 
 .lf-container {
@@ -36,7 +39,6 @@ body:has(.lf-page) > footer {
 .lf-identity-logo {
   width: 168px;
   height: auto;
-  margin-top: -6px;
 }
 
 .lf-identity-line {
@@ -275,7 +277,7 @@ body:has(.lf-page) > footer {
 
 @media (min-width: 720px) {
   .lf-page {
-    padding-top: 12px;
+    padding-top: 28px;
   }
 
   .lf-identity-logo {
