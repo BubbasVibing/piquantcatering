@@ -9,7 +9,6 @@ import {
   faCheck,
   faChampagneGlasses,
   faClock,
-  faPercent,
   faShieldHalved,
   faUserTie,
   faUtensils,
@@ -17,67 +16,83 @@ import {
 import { useFormspree } from '@/hooks/useFormspree';
 import '@/styles/catering-deal.css';
 
-// ──────────────────────────────────────────────────────────────────────
-// EDIT THIS BLOCK BEFORE PRINTING THE QR CODE
-// ──────────────────────────────────────────────────────────────────────
-const OFFER = {
-  eyebrow: 'A Thank-You From Piquant',
-  // The hero headline reads:  {lead}{accent}{tail}
-  headlineLead: 'Loved what you ',
-  headlineAccent: 'tasted tonight?',
-  headlineTail: ' Bring Piquant to your next event.',
-  lede: 'You\u2019re enjoying food we catered for this evening. If it impressed you, we\u2019d love to do the same for your next wedding, corporate event, or private gathering — with a thank-you offer reserved just for tonight\u2019s guests.',
+/* ──────────────────────────────────────────────────────────────────────
+ * Funnel content — work through each section below.
+ *
+ * Every section's copy lives in this single CONTENT object. Edit a
+ * section here and the page updates. The structure (hero → incentive
+ * → "what we do" cards → pull-quote → form) stays the same; only the
+ * words change.
+ *
+ *   1) HERO          → CONTENT.hero
+ *   2) INCENTIVE     → CONTENT.incentive
+ *   3) WHAT WE DO    → CONTENT.cards
+ *   4) PULL QUOTE    → CONTENT.quote
+ *   5) FORM          → CONTENT.form
+ *
+ * Replace any "TODO:" line with the real copy.
+ * ────────────────────────────────────────────────────────────────────── */
+const CONTENT = {
+  // ── 1) HERO ─────────────────────────────────────────────────────────
+  hero: {
+    eyebrow: 'TODO: short eyebrow tag',
+    // Headline renders as:  {lead}{accent}{tail}
+    headlineLead: 'TODO: headline lead ',
+    headlineAccent: 'highlighted phrase',
+    headlineTail: ' — closing line.',
+    lede: 'TODO: one or two sentence lede that explains the offer in plain language.',
+    primaryCta: 'TODO: primary CTA label',
+    phone: '(917) 822-6951',
+    trustItems: [
+      { icon: faCalendarCheck, text: 'TODO: trust item one' },
+      { icon: faClock, text: 'TODO: trust item two' },
+      { icon: faShieldHalved, text: 'TODO: trust item three' },
+    ],
+  },
 
-  // The headline incentive — edit this to the real promo.
+  // ── 2) INCENTIVE ────────────────────────────────────────────────────
   incentive: {
-    badge: 'For tonight\u2019s guests only',
-    title: '10% off your first booking',
-    body: 'Mention this page when we follow up and we\u2019ll apply 10% off your first event with us, plus a complimentary tasting before you sign anything.',
+    badge: 'TODO: small badge label',
+    title: 'TODO: the actual offer (e.g. "10% off your first booking")',
+    body: 'TODO: one sentence explaining how to claim the offer and what they get.',
+    ctaLabel: 'TODO: incentive CTA label',
   },
 
-  // What Piquant can do for them (kept short — they already know we cook well)
-  includes: [
-    {
-      icon: faUtensils,
-      title: 'Custom menus',
-      body: 'We design every menu around your event, your guests, and any dietary needs in the room.',
-    },
-    {
-      icon: faUserTie,
-      title: 'Full-service team',
-      body: 'Servers, bartenders, and a dedicated event manager — we handle everything from setup to cleanup.',
-    },
-    {
-      icon: faChampagneGlasses,
-      title: 'Any event, any size',
-      body: 'Weddings, corporate dinners, milestone birthdays, intimate gatherings — 20 to 500+ guests.',
-    },
-    {
-      icon: faPercent,
-      title: 'Tasters\u2019 perks',
-      body: 'Tonight\u2019s guests get a complimentary tasting and priority dates for the next 12 months.',
-    },
+  // ── 3) WHAT WE DO (4 cards) ─────────────────────────────────────────
+  cardsHeading: 'TODO: section heading',
+  cardsSub: 'TODO: short supporting line under the heading.',
+  cards: [
+    { icon: faUtensils, title: 'TODO: card 1 title', body: 'TODO: card 1 body.' },
+    { icon: faUserTie, title: 'TODO: card 2 title', body: 'TODO: card 2 body.' },
+    { icon: faChampagneGlasses, title: 'TODO: card 3 title', body: 'TODO: card 3 body.' },
+    { icon: faShieldHalved, title: 'TODO: card 4 title', body: 'TODO: card 4 body.' },
   ],
 
-  pullQuote: {
-    text: 'Piquant exceeded our expectations in every way. The food was absolutely divine and our guests are still talking about it months later.',
-    author: 'Emily & Michael Johnson — Wedding Reception, 280 guests',
+  // ── 4) PULL QUOTE ───────────────────────────────────────────────────
+  quote: {
+    text: 'TODO: a short, punchy testimonial.',
+    author: 'TODO: name — event type',
   },
 
-  trustItems: [
-    { icon: faCalendarCheck, text: '15+ years catering' },
-    { icon: faClock, text: '24-hour reply' },
-    { icon: faShieldHalved, text: 'Fully insured' },
-  ],
+  // ── 5) FORM ─────────────────────────────────────────────────────────
+  form: {
+    heading: 'TODO: form heading',
+    sub: 'TODO: short sentence above the form.',
+    submitLabel: 'TODO: submit button label',
+    submitNote: 'TODO: small reassurance line under the submit button.',
+    successHeading: 'TODO: thank-you heading',
+    successBody: 'TODO: thank-you body — what happens next.',
+  },
 } as const;
-// ──────────────────────────────────────────────────────────────────────
+
+/* ────────────────────────────────────────────────────────────────────── */
 
 export default function OfferClient() {
   const searchParams = useSearchParams();
   const formRef = useRef<HTMLDivElement>(null);
   const { status, error, submit } = useFormspree();
 
-  // Capture campaign attribution from the QR-code URL
+  // QR-code attribution
   const tracking = useMemo(() => {
     const get = (key: string) => searchParams?.get(key) ?? '';
     return {
@@ -100,7 +115,7 @@ export default function OfferClient() {
     if (formData.get('_gotcha')) return;
 
     const payload: Record<string, string> = {
-      _subject: 'Tasted-it Funnel — Lead from QR',
+      _subject: 'Loved-the-Food Funnel — Lead from QR',
       offer: 'loved-the-food',
       ...tracking,
     };
@@ -113,27 +128,28 @@ export default function OfferClient() {
 
   return (
     <div className="deal-page">
+      {/* 1) HERO ─────────────────────────────────────────────────────── */}
       <section className="deal-hero">
         <div>
-          <span className="deal-hero-eyebrow">{OFFER.eyebrow}</span>
+          <span className="deal-hero-eyebrow">{CONTENT.hero.eyebrow}</span>
           <h1>
-            {OFFER.headlineLead}
-            <span className="accent">{OFFER.headlineAccent}</span>
-            {OFFER.headlineTail}
+            {CONTENT.hero.headlineLead}
+            <span className="accent">{CONTENT.hero.headlineAccent}</span>
+            {CONTENT.hero.headlineTail}
           </h1>
-          <p className="lede">{OFFER.lede}</p>
+          <p className="lede">{CONTENT.hero.lede}</p>
 
           <div className="deal-cta-row">
             <button type="button" className="deal-cta primary" onClick={scrollToForm}>
-              Claim My Offer
+              {CONTENT.hero.primaryCta}
             </button>
-            <a className="deal-cta ghost" href="tel:+19178226951">
-              Call (917) 822-6951
+            <a className="deal-cta ghost" href={`tel:${CONTENT.hero.phone.replace(/[^\d+]/g, '')}`}>
+              Call {CONTENT.hero.phone}
             </a>
           </div>
 
           <div className="deal-trust">
-            {OFFER.trustItems.map((item) => (
+            {CONTENT.hero.trustItems.map((item) => (
               <div className="deal-trust-item" key={item.text}>
                 <FontAwesomeIcon icon={item.icon} />
                 <span>{item.text}</span>
@@ -143,24 +159,24 @@ export default function OfferClient() {
         </div>
       </section>
 
+      {/* 2) INCENTIVE ───────────────────────────────────────────────── */}
       <section className="deal-incentive">
         <div className="deal-incentive-card">
-          <span className="deal-incentive-badge">{OFFER.incentive.badge}</span>
-          <h2>{OFFER.incentive.title}</h2>
-          <p>{OFFER.incentive.body}</p>
+          <span className="deal-incentive-badge">{CONTENT.incentive.badge}</span>
+          <h2>{CONTENT.incentive.title}</h2>
+          <p>{CONTENT.incentive.body}</p>
           <button type="button" className="deal-cta primary" onClick={scrollToForm}>
-            Claim My Offer
+            {CONTENT.incentive.ctaLabel}
           </button>
         </div>
       </section>
 
+      {/* 3) WHAT WE DO ──────────────────────────────────────────────── */}
       <section className="deal-section">
-        <h2>How Piquant caters yours</h2>
-        <p className="section-sub">
-          You already know how the food tastes. Here&apos;s the rest of what we do.
-        </p>
+        <h2>{CONTENT.cardsHeading}</h2>
+        <p className="section-sub">{CONTENT.cardsSub}</p>
         <div className="deal-includes-grid">
-          {OFFER.includes.map((item) => (
+          {CONTENT.cards.map((item) => (
             <article className="deal-include-card" key={item.title}>
               <div className="deal-include-icon">
                 <FontAwesomeIcon icon={item.icon} />
@@ -172,11 +188,13 @@ export default function OfferClient() {
         </div>
       </section>
 
+      {/* 4) PULL QUOTE ──────────────────────────────────────────────── */}
       <section className="deal-quote">
-        <blockquote>&ldquo;{OFFER.pullQuote.text}&rdquo;</blockquote>
-        <div className="author">— {OFFER.pullQuote.author}</div>
+        <blockquote>&ldquo;{CONTENT.quote.text}&rdquo;</blockquote>
+        <div className="author">— {CONTENT.quote.author}</div>
       </section>
 
+      {/* 5) FORM ────────────────────────────────────────────────────── */}
       <section className="deal-form-section" ref={formRef}>
         <div className="deal-form-card">
           {status === 'success' ? (
@@ -184,23 +202,17 @@ export default function OfferClient() {
               <div className="deal-success-icon">
                 <FontAwesomeIcon icon={faCheck} />
               </div>
-              <h2>You&apos;re in.</h2>
-              <p>
-                Thanks — we&apos;ll be in touch within 24 hours to lock in your offer and start
-                shaping your event. Enjoy the rest of tonight.
-              </p>
+              <h2>{CONTENT.form.successHeading}</h2>
+              <p>{CONTENT.form.successBody}</p>
               <div className="deal-success-next">
-                <Link href="/menus">Peek at the full menu</Link>
-                <Link href="/reviews">Read recent reviews</Link>
+                <Link href="/menus">View the menu</Link>
+                <Link href="/reviews">Read reviews</Link>
               </div>
             </div>
           ) : (
             <>
-              <h2>Claim your offer</h2>
-              <p className="form-sub">
-                Drop your details and we&apos;ll reach out within 24 hours with availability and a
-                proposal — and your tasters&apos; discount locked in.
-              </p>
+              <h2>{CONTENT.form.heading}</h2>
+              <p className="form-sub">{CONTENT.form.sub}</p>
               <form className="deal-form" onSubmit={handleSubmit} noValidate>
                 <div className="deal-field full">
                   <label htmlFor="deal-name">
@@ -255,14 +267,12 @@ export default function OfferClient() {
                 </div>
 
                 <div className="deal-field full">
-                  <label htmlFor="deal-notes">
-                    Anything we should know? (rough date, guest count, vision)
-                  </label>
+                  <label htmlFor="deal-notes">Anything we should know?</label>
                   <textarea
                     id="deal-notes"
                     name="message"
                     rows={3}
-                    placeholder="Optional — tell us what you have in mind…"
+                    placeholder="Optional — date, guest count, vision…"
                   />
                 </div>
 
@@ -284,11 +294,9 @@ export default function OfferClient() {
                 {error && <div className="deal-form-error">{error}</div>}
 
                 <button type="submit" className="deal-submit" disabled={status === 'submitting'}>
-                  {status === 'submitting' ? 'Sending…' : 'Claim My Offer'}
+                  {status === 'submitting' ? 'Sending…' : CONTENT.form.submitLabel}
                 </button>
-                <p className="deal-form-note">
-                  No commitment. We&apos;ll send a proposal and lock in your offer first.
-                </p>
+                <p className="deal-form-note">{CONTENT.form.submitNote}</p>
               </form>
             </>
           )}
